@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <!-- include CAPH 3.1.0 default package -->
+    <link href="../lib/caph/3.1.0/caph.min.css" rel="stylesheet" type="text/stylesheet">
+
+    <!-- include jQuery file (you can use jQuery in your environment) -->
+    <script src="../lib/caph/3.1.0/bower_components/jquery/dist/jquery.min.js" type="text/javascript"></script>
+
+    <!-- include hammer js for touch feature (uncomment to enable touch feature) -->
+    <!-- <script src="lib/caph/3.1.0/hammerjs/hammer.min.js" type="text/javascript"></script>  -->
+
+    <!-- include the CAPH Package for jquery -->
+    <script src="../lib/caph/3.1.0/caph-jquery.min.js" type="text/javascript"></script>
+
+    <link rel="stylesheet" type="text/css" href="../styles/nav.css" />
+    <link rel="stylesheet" type="text/css" href="../styles/player.css" />
+
+</head>
+
+<body>
+    <!-- <div id="button" class="caph-button"> Botão de amostra </div> -->
+
+    <nav>
+        <div id="nav-title">
+            <h3 id="title">RNS MEDIA PLAYER</h3>
+        </div>
+        <div id="nav-menu">
+            <ul id="menu">
+                <li><a href="../pages/home.html">Music</a></li>
+                <li><a href="../pages/my-list.html">Favourites</a></li>
+                <li><a href="#">search</a></li>
+            </ul>
+        </div>
+        <div id="nav-account">
+            <a href="../index.html"><img src="../assets/user.png" width="40"></a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div id="info">
+            <div class="blocos-musics"></div>
+        </div>
+
+        <div id="player">
+            <audio controls>
+                <source src="horse.ogg" type="audio/ogg">
+                <source src="horse.mp3" type="audio/mpeg">
+            </audio>
+        </div>
+    </main>
+
+    <script src="../scripts/my-list.js"></script>
+</body>
+</html>

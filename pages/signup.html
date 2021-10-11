@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <!-- include CAPH 3.1.0 default package -->
+    <link href="../lib/caph/3.1.0/caph.min.css" rel="stylesheet" type="text/stylesheet">
+
+    <!-- include jQuery file (you can use jQuery in your environment) -->
+    <script src="../lib/caph/3.1.0/bower_components/jquery/dist/jquery.min.js" type="text/javascript"></script>
+
+    <!-- include hammer js for touch feature (uncomment to enable touch feature) -->
+    <!-- <script src="lib/caph/3.1.0/hammerjs/hammer.min.js" type="text/javascript"></script>  -->
+
+    <!-- include the CAPH Package for jquery -->
+    <script src="../lib/caph/3.1.0/caph-jquery.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="../styles/signup.css" />
+
+</head>
+
+<body>
+    <main class="container">
+        <div class="panel">
+            <form class="form" action="destino.html" method="post">
+                <label for="inp-email">Nome</label>
+                <input id="inp-email" type="text" name="nome">
+
+                <label for="inp-email">Email</label>
+                <input id="inp-email" type="email" name="email">
+
+                <label for="inp-password">Password</label>
+                <input id="inp-password" type="password" name="password">
+
+                <label for="inp-password">Repeat Password</label>
+                <input id="inp-password" type="password" name="re-password">
+
+                <div id="btn-signup" class="caph-button" onclick="window.location.href='../pages/home.html'">Cadastrar</div>
+
+                <div id="btn-cancel" class="caph-button" onclick="window.location.href='../index.html'">Cancelar</div>
+            </form>
+        </div>
+    </main>
+
+    <script src="../scripts/signup.js"></script>
+</body>
+
+</html>

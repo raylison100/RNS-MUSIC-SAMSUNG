@@ -1,0 +1,46 @@
+#last-music{
+    width: 100%;
+    clear: both;
+    margin-top :20px;
+    padding-left: 50px;
+    padding-right: 50px;
+    box-sizing: border-box;
+}
+
+#recomendation-name{
+    float: left;
+    width: 40%;
+    height: 100%;
+    text-align: center;
+    padding-top: 2%;
+    color: #FFF;
+    font-size: 40px;
+    display: flex;
+    justify-content: center;
+    top : 0;
+}
+
+#recomendation-name h3{
+    margin: 0;
+}
+
+#recomendation-list{
+    float: left;
+    padding-top: 2%;
+    width: 54%;
+    height: 100%;
+    padding-right: 50px;
+    overflow: auto;
+}
+
+.blocos-musics{
+    float: left;
+    width: 200px;
+    height: 200px;
+    background-color: #0c0404;
+    margin: 20px;
+}
+
+#recomendation-list a :hover{
+    transform: scale(1.3);
+}

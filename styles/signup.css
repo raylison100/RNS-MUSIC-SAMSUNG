@@ -1,0 +1,61 @@
+body {
+    background-color: #833636;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.panel{
+    width: 50%;
+    margin-top: 10%;
+    display: flex;
+    justify-content: center;
+}
+
+.form{
+    font-size: 1.4em;
+    width: 35%;
+    padding: 15%;
+    padding-top: 10%;
+    padding-bottom: 10%;
+    color: rgb(71, 68, 68);
+    background-color: rgb(148, 143, 143);
+    border-radius: 20px;
+    margin-bottom: 2em;    
+}
+
+
+input {
+	margin-bottom:20px;
+    width: 100%;
+    height: 3em;
+	border-radius: 10px;
+    display:block;
+	margin-bottom:20px;
+	border:1px solid rgb(0, 0, 0);
+}
+
+.caph-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2.2em;
+    border: 1px solid #6f4c4d;
+    border-radius: 4px;
+    color : rgb(206, 197, 197);
+    width: 100%;
+    border-radius: 100px;
+}
+
+#btn-signup{
+    margin-top: 2.8em;
+    background-color: #ab8080;
+}
+
+#btn-cancel{
+    margin-top: 1em;
+    background-color: #3e3434;
+}    

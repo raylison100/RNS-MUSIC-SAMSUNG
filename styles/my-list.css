@@ -1,0 +1,28 @@
+.container {
+    clear: both;
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#list{
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    padding: 80px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.blocos-musics{
+    width: 200px;
+    height: 200px;
+    background-color: #0c0404;
+    margin: 20px;
+}
+
+#list a :hover{
+    transform: scale(1.3);
+}

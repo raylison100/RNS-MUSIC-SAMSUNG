@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <!-- include CAPH 3.1.0 default package -->
+    <link href="lib/caph/3.1.0/caph.min.css" rel="stylesheet" type="text/stylesheet">
+
+    <!-- include jQuery file (you can use jQuery in your environment) -->
+    <script src="lib/caph/3.1.0/bower_components/jquery/dist/jquery.min.js" type="text/javascript"></script>
+
+    <!-- include hammer js for touch feature (uncomment to enable touch feature) -->
+    <!-- <script src="lib/caph/3.1.0/hammerjs/hammer.min.js" type="text/javascript"></script>  -->
+
+    <!-- include the CAPH Package for jquery -->
+    <script src="lib/caph/3.1.0/caph-jquery.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="./styles/login.css" />
+
+</head>
+
+<body>
+    <!-- <div id="button" class="caph-button"> Botão de amostra </div> -->
+
+    <main class="container">
+        <div class="title">
+            <h1>RNS<br>MUSIC<br>PLAYER</h1>
+        </div>
+
+        <div class="panel-login">
+            <form class="form" action="destino.html" method="post">
+                <label for="inp-email">Email</label>
+                <input id="inp-email" type="email" name="email">
+
+                <label for="inp-password">Password</label>
+                <input id="inp-password" type="password" name="password">
+
+                <div id="btn-login" class="caph-button" onclick="window.location.href='./pages/home.html'">ENTRAR
+                </div>
+
+                <div id="btn-new-user" class="caph-button" onclick="window.location.href='./pages/signup.html'"> CRIAR CONTA </div>
+            </form>
+        </div>
+
+        <div class="img-login">
+            <img id="logo" src="./assets/—Pngtree—music notes_2857830.png" width="300">
+        </div>
+    </main>
+
+    <script src="./scripts/login.js"></script>
+</body>
+
+</html>
