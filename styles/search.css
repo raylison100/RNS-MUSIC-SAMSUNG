@@ -1,0 +1,93 @@
+.container {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#inp-search{
+    width: 60%;
+    height: 3em;
+    border-radius: 10px;
+    display: block;
+    margin-bottom: 20px;
+    border: 1px solid rgb(0, 0, 0);
+    font-size: 20px;
+}
+
+.btns-letter{
+    font-size: 45px;
+    display: flex;
+    align-items: center;
+}
+
+.btns-letter span{
+    width: 60px;
+    margin: -3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btns-letter span:hover{
+    transform: scale(1.3);
+    background-color: #fff;
+}
+
+.btns-numeric{
+    margin-top: 25px;
+    font-size: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btns-numeric span{
+    width: 60px;
+    margin: -3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btns-numeric span:hover{
+    background-color: #fff;
+}
+
+.btns-dir{
+    margin-top: 25px;
+    font-size: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 150px;
+}
+
+#btn-space i{
+    font-size: 65px;
+    width: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#btn-space:hover{
+    transform: scale(1.3);
+    background-color: #fff;
+}
+
+
+#btn-backspace i{
+    font-size: 65px;
+    width: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#btn-backspace:hover{
+    transform: scale(1.3);
+    background-color: #fff;
+}
