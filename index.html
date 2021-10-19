@@ -29,15 +29,16 @@
         <div class="panel-login">
             <form class="form" action="destino.html" method="post">
                 <label for="inp-email">Email</label>
-                <input id="inp-email" type="email" name="email">
-
+                <input data-focusable-initial-focus="true" id="inp-email" type="email" name="email">
+     
+                
                 <label for="inp-password">Password</label>
                 <input id="inp-password" type="password" name="password">
 
-                <div id="btn-login" class="caph-button" onclick="window.location.href='./pages/home.html'">ENTRAR
+                <div focusable id="btn-login" class="caph-button" onclick="window.location.href='./pages/home.html'">ENTRAR
                 </div>
 
-                <div id="btn-new-user" class="caph-button" onclick="window.location.href='./pages/signup.html'"> CRIAR CONTA </div>
+                <div focusable id="btn-new-user" class="caph-button" onclick="window.location.href='./pages/signup.html'"> CRIAR CONTA </div>
             </form>
         </div>
 

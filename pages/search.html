@@ -30,11 +30,11 @@
         <div id="nav-title">
             <h3 id="title">RNS MEDIA PLAYER</h3>
         </div>
-        <div id="nav-menu">
+        <div focusable id="nav-menu">
             <ul id="menu">
-                <li><a href="../pages/home.html">Music</a></li>
-                <li><a href="../pages/my-list.html">Favourites</a></li>
-                <li><a href="../pages/search.html">Search</a></li>
+                <li><a focusable id="home" href="../pages/home.html">Music</a></li>
+                <li><a focusable id="my-list" href="../pages/my-list.html">Favourites</a></li>
+                <li><a focusable data-focusable-initial-focus="true" id="search" href="../pages/search.html">Search</a></li>
             </ul>
         </div>
         <div id="nav-account">
@@ -46,51 +46,53 @@
         <input id="inp-search" type="text" name="search">
 
         <div class="btns-letter">
-            <span>a</span>
-            <span>b</span>
-            <span>c</span>
-            <span>d</span>
-            <span>f</span>
-            <span>g</span>
-            <span>h</span>
-            <span>i</span>
-            <span>j</span>
-            <span>k</span>
-            <span>l</span>
-            <span>m</span>
-            <span>n</span>
-            <span>o</span>
-            <span>p</span>
-            <span>q</span>
-            <span>r</span>
-            <span>s</span>
-            <span>t</span>
-            <span>u</span>
-            <span>v</span>
-            <span>w</span>
-            <span>x</span>
-            <span>y</span>
-            <span>z</span>
+        	<div><span focusable>a</span></div>
+  
+            <span focusable>b</span>
+            <span focusable >c</span>
+            <span focusable>d</span>
+            <span focusable>f</span>
+            <span focusable>g</span>
+            <span focusable>h</span>
+            <span focusable>i</span>
+            <span focusable>j</span>
+            <span focusable>k</span>
+            <span focusable>l</span>
+            <span focusable>m</span>
+            <span focusable>n</span>
+            <span focusable>o</span>
+            <span focusable>p</span>
+            <span focusable>q</span>
+            <span focusable>r</span>
+            <span focusable>s</span>
+            <span focusable>t</span>
+            <span focusable>u</span>
+            <span focusable>v</span>
+            <span focusable>w</span>
+            <span focusable>x</span>
+            <span focusable>y</span>
+            <span focusable>z</span>
         </div>
         <div class="btns-numeric">
-            <span>0</span>
-            <span>1</span>
-            <span>2</span>
-            <span>3</span>
-            <span>4</span>
-            <span>5</span>
-            <span>6</span>
-            <span>7</span>
-            <span>8</span>
-            <span>9</span>
+            <span focusable>0</span>
+            <span focusable>1</span>
+            <span focusable>2</span>
+            <span focusable>3</span>
+            <span focusable>4</span>
+            <span focusable>5</span>
+            <span focusable>6</span>
+            <span focusable>7</span>
+            <span focusable>8</span>
+            <span focusable>9</span>
         </div>
         <div class="btns-dir">
-            <div id="btn-space"><i id="icon-space" class="material-icons">space_bar</i></div>
-            <div id="btn-backspace"><i id="icon-backspace" class="material-icons">west</i></div>
+            <div focusable id="btn-space"><i id="icon-space" class="material-icons">space_bar</i></div>
+            <div focusable id="btn-backspace"><i id="icon-backspace" class="material-icons">west</i></div>
         </div>
     </main>
 
     <script src="../scripts/search.js"></script>
+    <script src="../scripts/nav.js"></script>
 </body>
 
 </html>

@@ -16,8 +16,7 @@ $('#btn-signup').caphButton({
     },
     toggle: true,
     onSelected: function (event, originalEvent, selected) {
-        //In toggle button, 'selected' is passed additionally. Through selected , you can check toggle button is selected or not.
-        //In normal button, 'selected' isn't passed to select event handler
+    	location.href = "../pages/home.html";
     }
 });
 
@@ -39,9 +38,97 @@ $('#btn-cancel').caphButton({
     },
     toggle: true,
     onSelected: function (event, originalEvent, selected) {
-        //In toggle button, 'selected' is passed additionally. Through selected , you can check toggle button is selected or not.
-        //In normal button, 'selected' isn't passed to select event handler
+    	location.href = "../index.html";
     }
+});
+
+$('#inp-name').caphInput({
+    onFocused :function(event,originalEvent){
+    	 $(event.currentTarget).css({
+             border : '1px solid red'
+         });
+    },
+    onBlurred :function(event,originalEvent){
+        $(event.currentTarget).css({
+            border : ''
+        });
+    },
+    onChanged :function(event,value){
+    	console.log("value", value);
+    },
+  	type : 'text',
+		value:''
+});
+
+$('#inp-name').caphInput({
+    onFocused :function(event,originalEvent){
+    	 $(event.currentTarget).css({
+             border : '1px solid red'
+         });
+    },
+    onBlurred :function(event,originalEvent){
+        $(event.currentTarget).css({
+            border : ''
+        });
+    },
+    onChanged :function(event,value){
+    	console.log("value", value);
+    },
+  	type : 'text',
+		value:''
+});
+
+$('#inp-email').caphInput({
+    onFocused :function(event,originalEvent){
+    	 $(event.currentTarget).css({
+             border : '1px solid red'
+         });
+    },
+    onBlurred :function(event,originalEvent){
+        $(event.currentTarget).css({
+            border : ''
+        });
+    },
+    onChanged :function(event,value){
+    	console.log("value", value);
+    },
+  	type : 'email',
+		value:''
+});
+
+$('#inp-password').caphInput({
+    onFocused :function(event,originalEvent){
+    	 $(event.currentTarget).css({
+             border : '1px solid red'
+         });
+    },
+    onBlurred :function(event,originalEvent){
+        $(event.currentTarget).css({
+            border : ''
+        });
+    },
+    onChanged :function(event,value){
+    	console.log("value", value);
+    },
+  	type : 'password',
+		value:''
+});
+$('#inp-re-password').caphInput({
+    onFocused :function(event,originalEvent){
+    	 $(event.currentTarget).css({
+             border : '1px solid red'
+         });
+    },
+    onBlurred :function(event,originalEvent){
+        $(event.currentTarget).css({
+            border : ''
+        });
+    },
+    onChanged :function(event,value){
+    	console.log("value", value);
+    },
+  	type : 'password',
+		value:''
 });
 
 

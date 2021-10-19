@@ -22,8 +22,8 @@
     <main class="container">
         <div class="panel">
             <form class="form" action="destino.html" method="post">
-                <label for="inp-email">Nome</label>
-                <input id="inp-email" type="text" name="nome">
+                <label for="inp-name">Nome</label>
+                <input data-focusable-initial-focus="true" id="inp-name" type="text" name="nome">
 
                 <label for="inp-email">Email</label>
                 <input id="inp-email" type="email" name="email">
@@ -31,12 +31,12 @@
                 <label for="inp-password">Password</label>
                 <input id="inp-password" type="password" name="password">
 
-                <label for="inp-password">Repeat Password</label>
-                <input id="inp-password" type="password" name="re-password">
+                <label for="inp-re-password">Repeat Password</label>
+                <input id="inp-re-password" type="password" name="re-password">
 
-                <div id="btn-signup" class="caph-button" onclick="window.location.href='../pages/home.html'">Cadastrar</div>
+                <div focusable id="btn-signup" class="caph-button" onclick="window.location.href='../pages/home.html'">Cadastrar</div>
 
-                <div id="btn-cancel" class="caph-button" onclick="window.location.href='../index.html'">Cancelar</div>
+                <div focusable id="btn-cancel" class="caph-button" onclick="window.location.href='../index.html'">Cancelar</div>
             </form>
         </div>
     </main>
