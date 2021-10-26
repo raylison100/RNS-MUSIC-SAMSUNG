@@ -45,7 +45,7 @@ $('#btn-new-user').caphButton({
 $('#inp-email').caphInput({
     onFocused :function(event,originalEvent){
     	 $(event.currentTarget).css({
-             border : '1px solid red'
+             border : '3px solid red'
          });
     },
     onBlurred :function(event,originalEvent){
@@ -63,7 +63,7 @@ $('#inp-email').caphInput({
 $('#inp-password').caphInput({
     onFocused :function(event,originalEvent){
     	 $(event.currentTarget).css({
-             border : '1px solid red'
+             border : '3px solid red'
          });
     },
     onBlurred :function(event,originalEvent){

@@ -39,7 +39,13 @@ nav {
     height: 100%;
 }
 
-#menu li {
+#menu div{
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+#menu div li {
     list-style-type: none;
     display: flex;
     height: 100%;
@@ -47,7 +53,7 @@ nav {
     margin: 20px;
 }
 
-#menu li a {
+#menu div li a {
     text-decoration: none;
     color: rgb(78, 72, 72);
     width: 5em;
@@ -58,7 +64,7 @@ nav {
     justify-content: center;
 }
 
-#menu li a:hover {
+#menu div li a:hover {
     background-color: #a71717;
     color: #FFF;
 }

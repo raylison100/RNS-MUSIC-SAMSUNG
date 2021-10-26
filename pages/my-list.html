@@ -9,8 +9,9 @@
     <!-- include jQuery file (you can use jQuery in your environment) -->
     <script src="../lib/caph/3.1.0/bower_components/jquery/dist/jquery.min.js" type="text/javascript"></script>
 
-    <!-- include hammer js for touch feature (uncomment to enable touch feature) -->
-    <!-- <script src="lib/caph/3.1.0/hammerjs/hammer.min.js" type="text/javascript"></script>  -->
+    <!-- include jQuery file (you can use jQuery in your environment) -->
+    <SCRIPT src="../lib/caph/3.1.0/bower_components/jquery/dist/jquery.min.js" type="text/javascript"></SCRIPT>
+    <script src="../lib/caph/3.1.0/bower_components/lodash/lodash.min.js" type="text/javascript"></script>
 
     <!-- include the CAPH Package for jquery -->
     <script src="../lib/caph/3.1.0/caph-jquery.min.js" type="text/javascript"></script>
@@ -29,9 +30,21 @@
         </div>
         <div focusable id="nav-menu">
             <ul id="menu">
-                <li><a focusable id="home" href="../pages/home.html">Music</a></li>
-                <li><a focusable data-focusable-initial-focus="true" id="my-list" href="../pages/my-list.html">Favourites</a></li>
-                <li><a focusable id="search" href="../pages/search.html">Search</a></li>
+                <div>
+                    <li>
+                        <a id="home" focusable href="../pages/home.html">Music</a>
+                    </li>
+                </div>
+                <div>
+                    <li>
+                        <a id="my-list" focusable  focusable data-focusable-initial-focus="true" href="../pages/my-list.html">Favourites</a>
+                    </li>
+                </div>
+                <div>
+                    <li>
+                        <a  id="search" focusable href="../pages/search.html">Search</a>
+                    </li>
+                </div>
             </ul>
         </div>
         <div id="nav-account">
@@ -40,30 +53,15 @@
     </nav>
 
     <main class="container">
-        <div id="list">
-            <a href="../pages/musics.html">
-                <div focusable class="blocos-musics"></div>
-            </a>            <a href="../pages/musics.html">
-                <div focusable class="blocos-musics"></div>
-            </a>            <a href="../pages/musics.html">
-                <div focusable class="blocos-musics"></div>
-            </a>            <a href="../pages/musics.html">
-                <div focusable class="blocos-musics"></div>
-            </a>            <a href="../pages/musics.html">
-                <div focusable class="blocos-musics"></div>
-            </a>            <a href="../pages/musics.html">
-                <div focusable class="blocos-musics"></div>
-            </a>            <a href="../pages/musics.html">
-                <div focusable class="blocos-musics"></div>
-            </a>            <a href="../pages/musics.html">
-                <div focusable class="blocos-musics"></div>
-            </a>            <a href="../pages/musics.html">
-                <div focusable class="blocos-musics"></div>
-            </a>
-        </div>
-
+        <div id="list"></div>
     </main>
-
+	<script id="template1" type="text/template">
+        <div focusable>
+            <a href="../pages/musics.html">
+                <div class="blocos-musics"></div>
+            </a>  
+        </div>  
+	</script>
     <script src="../scripts/my-list.js"></script>
     <script src="../scripts/nav.js"></script>
 </body>

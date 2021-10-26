@@ -32,9 +32,21 @@
         </div>
         <div focusable id="nav-menu">
             <ul id="menu">
-                <li><a focusable id="home" href="../pages/home.html">Music</a></li>
-                <li><a focusable id="my-list" href="../pages/my-list.html">Favourites</a></li>
-                <li><a focusable data-focusable-initial-focus="true" id="search" href="../pages/search.html">Search</a></li>
+                <div>
+                    <li>
+                        <a id="home" focusable href="../pages/home.html">Music</a>
+                    </li>
+                </div>
+                <div>
+                    <li>
+                        <a id="my-list" focusable href="../pages/my-list.html">Favourites</a>
+                    </li>
+                </div>
+                <div>
+                    <li>
+                        <a  id="search" focusable data-focusable-initial-focus="true" href="../pages/search.html">Search</a>
+                    </li>
+                </div>
             </ul>
         </div>
         <div id="nav-account">
@@ -43,52 +55,53 @@
     </nav>
 
     <main class="container">
+        <form class="form" action="" method="post"></form>
         <input id="inp-search" type="text" name="search">
 
-        <div class="btns-letter">
-        	<div><span focusable>a</span></div>
-  
-            <span focusable>b</span>
-            <span focusable >c</span>
-            <span focusable>d</span>
-            <span focusable>f</span>
-            <span focusable>g</span>
-            <span focusable>h</span>
-            <span focusable>i</span>
-            <span focusable>j</span>
-            <span focusable>k</span>
-            <span focusable>l</span>
-            <span focusable>m</span>
-            <span focusable>n</span>
-            <span focusable>o</span>
-            <span focusable>p</span>
-            <span focusable>q</span>
-            <span focusable>r</span>
-            <span focusable>s</span>
-            <span focusable>t</span>
-            <span focusable>u</span>
-            <span focusable>v</span>
-            <span focusable>w</span>
-            <span focusable>x</span>
-            <span focusable>y</span>
-            <span focusable>z</span>
+        <div focusable class="btns-letter">
+        	<div id="btn-a" focusable data-focusable-initial-focus="true" class="caph-button"><span>a</span></div>
+            <div id="btn-b" focusable class="caph-button"><span>b</span></div>
+            <div id="btn-c" focusable class="caph-button"><span>c</span></div>
+            <div id="btn-d" focusable class="caph-button"><span>d</span></div>
+            <div id="btn-f" focusable class="caph-button"><span>f</span></div>
+            <div id="btn-g" focusable class="caph-button"><span>g</span></div>
+            <div id="btn-h" focusable class="caph-button"><span>h</span></div>
+            <div id="btn-i" focusable class="caph-button"><span>i</span></div>
+            <div id="btn-j" focusable class="caph-button"><span>j</span></div>
+            <div id="btn-k" focusable class="caph-button"><span>k</span></div>
+            <div id="btn-l" focusable class="caph-button"><span>l</span></div>
+            <div id="btn-m" focusable class="caph-button"><span>m</span></div>
+            <div id="btn-n" focusable class="caph-button"><span>n</span></div>
+            <div id="btn-o" focusable class="caph-button"><span>o</span></div>
+            <div id="btn-p" focusable class="caph-button"><span>p</span></div>
+            <div id="btn-q" focusable class="caph-button"><span>q</span></div>
+            <div id="btn-r" focusable class="caph-button"><span>r</span></div>
+            <div id="btn-s" focusable class="caph-button"><span>s</span></div>
+            <div id="btn-t" focusable class="caph-button"><span>t</span></div>
+            <div id="btn-u" focusable class="caph-button"><span>u</span></div>
+            <div id="btn-v" focusable class="caph-button"><span>v</span></div>
+            <div id="btn-w" focusable class="caph-button"><span>w</span></div>
+            <div id="btn-x" focusable class="caph-button"><span>x</span></div>
+            <div id="btn-y" focusable class="caph-button"><span>y</span></div>
+            <div id="btn-z" focusable class="caph-button"><span>z</span></div>
         </div>
-        <div class="btns-numeric">
-            <span focusable>0</span>
-            <span focusable>1</span>
-            <span focusable>2</span>
-            <span focusable>3</span>
-            <span focusable>4</span>
-            <span focusable>5</span>
-            <span focusable>6</span>
-            <span focusable>7</span>
-            <span focusable>8</span>
-            <span focusable>9</span>
+        <div focusable class="btns-numeric">
+           <div id="btn-0" focusable class="caph-button"><span id="0">0</span></div>
+           <div id="btn-1" focusable class="caph-button"><span id="1">1</span></div> 
+           <div id="btn-2" focusable class="caph-button"><span id="2">2</span></div> 
+           <div id="btn-3" focusable class="caph-button"><span id="3">3</span></div> 
+           <div id="btn-4" focusable class="caph-button"><span id="4">4</span></div> 
+           <div id="btn-5" focusable class="caph-button"><span id="5">5</span></div> 
+           <div id="btn-6" focusable class="caph-button"><span id="6">6</span></div> 
+           <div id="btn-7" focusable class="caph-button"><span id="7">7</span></div> 
+           <div id="btn-8" focusable class="caph-button"><span id="8">8</span></div> 
+           <div id="btn-9" focusable class="caph-button"><span id="9">9</span></div> 
         </div>
-        <div class="btns-dir">
+        <div focusable class="btns-dir">
             <div focusable id="btn-space"><i id="icon-space" class="material-icons">space_bar</i></div>
             <div focusable id="btn-backspace"><i id="icon-backspace" class="material-icons">west</i></div>
         </div>
+    </form>
     </main>
 
     <script src="../scripts/search.js"></script>

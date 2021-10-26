@@ -8,12 +8,10 @@
 
 #list{
     width: 100%;
-    height: 100%;
+    height: 33em;
     overflow: auto;
     padding: 80px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    position: relative;
 }
 
 .blocos-musics{

@@ -45,7 +45,7 @@ $('#btn-cancel').caphButton({
 $('#inp-name').caphInput({
     onFocused :function(event,originalEvent){
     	 $(event.currentTarget).css({
-             border : '1px solid red'
+             border : '3px solid red'
          });
     },
     onBlurred :function(event,originalEvent){
@@ -63,7 +63,7 @@ $('#inp-name').caphInput({
 $('#inp-name').caphInput({
     onFocused :function(event,originalEvent){
     	 $(event.currentTarget).css({
-             border : '1px solid red'
+             border : '3px solid red'
          });
     },
     onBlurred :function(event,originalEvent){
@@ -81,7 +81,7 @@ $('#inp-name').caphInput({
 $('#inp-email').caphInput({
     onFocused :function(event,originalEvent){
     	 $(event.currentTarget).css({
-             border : '1px solid red'
+             border : '3px solid red'
          });
     },
     onBlurred :function(event,originalEvent){
@@ -99,7 +99,7 @@ $('#inp-email').caphInput({
 $('#inp-password').caphInput({
     onFocused :function(event,originalEvent){
     	 $(event.currentTarget).css({
-             border : '1px solid red'
+             border : '3px solid red'
          });
     },
     onBlurred :function(event,originalEvent){
@@ -116,7 +116,7 @@ $('#inp-password').caphInput({
 $('#inp-re-password').caphInput({
     onFocused :function(event,originalEvent){
     	 $(event.currentTarget).css({
-             border : '1px solid red'
+             border : '3px solid red'
          });
     },
     onBlurred :function(event,originalEvent){

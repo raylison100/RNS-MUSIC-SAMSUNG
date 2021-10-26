@@ -9,11 +9,14 @@
     <!-- include jQuery file (you can use jQuery in your environment) -->
     <script src="../lib/caph/3.1.0/bower_components/jquery/dist/jquery.min.js" type="text/javascript"></script>
 
-    <!-- include hammer js for touch feature (uncomment to enable touch feature) -->
-    <!-- <script src="lib/caph/3.1.0/hammerjs/hammer.min.js" type="text/javascript"></script>  -->
+    <!-- include jQuery file (you can use jQuery in your environment) -->
+    <SCRIPT src="../lib/caph/3.1.0/bower_components/jquery/dist/jquery.min.js" type="text/javascript"></SCRIPT>
+    <script src="../lib/caph/3.1.0/bower_components/lodash/lodash.min.js" type="text/javascript"></script>
 
     <!-- include the CAPH Package for jquery -->
     <script src="../lib/caph/3.1.0/caph-jquery.min.js" type="text/javascript"></script>
+    
+    <script src="http://underscorejs.org/underscore-min.js"></script>
 
     <link rel="stylesheet" type="text/css" href="../styles/nav.css" />
     <link rel="stylesheet" type="text/css" href="../styles/home.css" />
@@ -29,13 +32,27 @@
         </div>
         <div focusable id="nav-menu">
             <ul id="menu">
-                <li><a focusable data-focusable-initial-focus="true" id="home" href="../pages/home.html">Music</a></li>
-                <li><a focusable id="my-list" href="../pages/my-list.html">Favourites</a></li>
-                <li><a focusable id="search" href="../pages/search.html">Search</a></li>
+                <div>
+                    <li>
+                        <a id="home" focusable data-focusable-initial-focus="true" href="../pages/home.html">Music</a>
+                    </li>
+                </div>
+                <div>
+                    <li>
+                        <a id="my-list" focusable  href="../pages/my-list.html">Favourites</a>
+                    </li>
+                </div>
+                <div>
+                    <li>
+                        <a  id="search" focusable href="../pages/search.html">Search</a>
+                    </li>
+                </div>
             </ul>
         </div>
         <div id="nav-account">
-            <a href="../index.html"><img src="../assets/user.png" width="40"></a>
+            <div id="account-icon" focusable>
+                <a href="../index.html"><img src="../assets/user.png" width="40"></a>
+            </div>
         </div>
     </nav>
 
@@ -48,49 +65,20 @@
             <h3>RECOMENDATION <br>MUSICS</h3>
         </div>
 
-        <div id="recomendation-list">
-            <a href="../pages/musics.html">
-                <div focusable class="blocos-musics" on-focused="focus($event)"></div>
-            </a>
-            <a href="../pages/musics.html">
-                <div focusable class="blocos-musics"></div>
-            </a>
-            <a href="../pages/musics.html">
-                <div focusable class="blocos-musics"></div>
-            </a>
-            <a href="../pages/musics.html">
-                <div focusable class="blocos-musics"></div>
-            </a>
-            <a href="../pages/musics.html">
-                <div focusable class="blocos-musics"></div>
-            </a>
-            <a href="../pages/musics.html">
-                <div focusable class="blocos-musics"></div>
-            </a>
-            <a href="../pages/musics.html">
-                <div focusable class="blocos-musics"></div>
-            </a>
-            <a href="../pages/musics.html">
-                <div focusable class="blocos-musics"></div>
-            </a>
-            <a href="../pages/musics.html">
-                <div focusable class="blocos-musics"></div>
-            </a>
-            <a href="../pages/musics.html">
-                <div focusable class="blocos-musics"></div>
-            </a>
-            <a href="../pages/musics.html">
-                <div focusable class="blocos-musics"></div>
-            </a>
-            <a href="../pages/musics.html">
-                <div focusable class="blocos-musics"></div>
-            </a>
-        </div>
-
+        <div id="recomendation-list"></div>
     </main>
+    
 
+
+	<!-- template view -->
+	<script id="template1" type="text/template">
+        <div focusable>
+            <a href="../pages/musics.html">
+                <div class="blocos-musics"></div>
+            </a>  
+        </div>  
+	</script>
     <script src="../scripts/home.js"></script>
     <script src="../scripts/nav.js"></script>
 </body>
-
 </html>

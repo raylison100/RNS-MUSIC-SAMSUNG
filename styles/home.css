@@ -26,11 +26,11 @@
 
 #recomendation-list{
     float: left;
-    padding-top: 2%;
-    width: 54%;
-    height: 100%;
+    width: 52%;
+    height: 33em;
     padding-right: 50px;
-    overflow: auto;
+    position: relative;
+    overflow-x: hidden;
 }
 
 .blocos-musics{
