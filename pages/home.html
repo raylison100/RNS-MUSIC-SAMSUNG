@@ -2,7 +2,6 @@
 <html>
 
 <head>
-
     <!-- include CAPH 3.1.0 default package -->
     <link href="../lib/caph/3.1.0/caph.min.css" rel="stylesheet" type="text/stylesheet">
 
@@ -20,7 +19,6 @@
 
     <link rel="stylesheet" type="text/css" href="../styles/nav.css" />
     <link rel="stylesheet" type="text/css" href="../styles/home.css" />
-
 </head>
 
 <body>
@@ -30,29 +28,33 @@
         <div id="nav-title">
             <h3 id="title">RNS MEDIA PLAYER</h3>
         </div>
-        <div focusable id="nav-menu">
+        <div id="nav-menu">
             <ul id="menu">
                 <div>
                     <li>
-                        <a id="home" focusable data-focusable-initial-focus="true" href="../pages/home.html">Music</a>
+                        <a id="home" focusable data-focusable-depth="0" 
+                            data-focusable-group="default" 
+                            data-focusable-name="focusable-0" 
+                            data-focusable-initial-focus="true"
+                             href="../pages/home.html">Music</a>
                     </li>
                 </div>
                 <div>
                     <li>
-                        <a id="my-list" focusable  href="../pages/my-list.html">Favourites</a>
+                        <a id="my-list" focusable data-focusable-depth="0" data-focusable-group="default" data-focusable-name="focusable-1" href="../pages/my-list.html">Favourites</a>
                     </li>
                 </div>
                 <div>
                     <li>
-                        <a  id="search" focusable href="../pages/search.html">Search</a>
+                        <a  id="search" focusable data-focusable-depth="0" data-focusable-group="default" data-focusable-name="focusable-2" href="../pages/search.html">Search</a>
+                    </li>
+                </div>
+                <div>
+                    <li>
+                        <a id="account-icon" focusable data-focusable-depth="0" data-focusable-group="default" data-focusable-name="focusable-3" href="../index.html"><img src="../assets/user.png" width="40"></a>
                     </li>
                 </div>
             </ul>
-        </div>
-        <div id="nav-account">
-            <div id="account-icon" focusable>
-                <a href="../index.html"><img src="../assets/user.png" width="40"></a>
-            </div>
         </div>
     </nav>
 
@@ -61,18 +63,34 @@
             <img src="../assets/capa2.jpg" width="100%" height="250">
         </div>
 
-        <div id="recomendation-name">
-            <h3>RECOMENDATION <br>MUSICS</h3>
+        <div id="recomendation" class="lists">
+            <div class="name">
+                <h3>RECOMENDATION <br>MUSICS</h3>
+            </div>
+    
+            <div id="recomendationList" class="list-group"></div>
         </div>
 
-        <div id="recomendation-list"></div>
+        <div id="news" class="lists">
+            <div class="name">
+                <h3>NEWS <br>MUSICS</h3>
+            </div>
+    
+            <div id="newsList" class="list-group"></div>
+        </div>
+
+        <div id="popular" class="lists">
+            <div class="name">
+                <h3>POPULAR <br>MUSICS</h3>
+            </div>
+    
+            <div id="popularList" class="list-group"></div>
+        </div>
     </main>
     
-
-
 	<!-- template view -->
-	<script id="template1" type="text/template">
-        <div focusable>
+    <script id="template1" type="text/template">
+        <div class="item-blocos-musics" focusable data-focusable-depth="0" data-focusable-group="list">
             <a href="../pages/musics.html">
                 <div class="blocos-musics"></div>
             </a>  

@@ -7,40 +7,40 @@
     box-sizing: border-box;
 }
 
-#recomendation-name{
-    float: left;
+.name{
     width: 40%;
-    height: 100%;
     text-align: center;
-    padding-top: 2%;
     color: #FFF;
     font-size: 40px;
+}
+
+.lists {
     display: flex;
+    align-items: center;
     justify-content: center;
-    top : 0;
-}
-
-#recomendation-name h3{
-    margin: 0;
-}
-
-#recomendation-list{
-    float: left;
-    width: 52%;
-    height: 33em;
+    flex-direction: row;
+    padding-left: 50px;
     padding-right: 50px;
+}
+
+.list-group{
+    width: 1000px;
     position: relative;
-    overflow-x: hidden;
+    height: 15em;
+    overflow: hidden;
 }
 
 .blocos-musics{
-    float: left;
     width: 200px;
     height: 200px;
     background-color: #0c0404;
-    margin: 20px;
 }
 
-#recomendation-list a :hover{
-    transform: scale(1.3);
+.blocos-musics:hover{
+    transform: scale(1.2);
+    background-color: #FFF;
+}
+
+.wrapper{
+    width: 11em;
 }

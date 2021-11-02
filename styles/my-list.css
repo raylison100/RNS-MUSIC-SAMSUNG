@@ -21,6 +21,6 @@
     margin: 20px;
 }
 
-#list a :hover{
+#recomendationList a :hover{
     transform: scale(1.3);
 }
