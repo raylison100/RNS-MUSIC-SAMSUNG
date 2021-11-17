@@ -12,35 +12,47 @@
     text-align: center;
     color: #FFF;
     font-size: 40px;
+    float: left;
 }
 
 .lists {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: row;
     padding-left: 50px;
     padding-right: 50px;
 }
 
 .list-group{
-    width: 1000px;
+    width: 60%;
+    height: 210px;
     position: relative;
-    height: 15em;
     overflow: hidden;
+    float: left;
 }
 
 .blocos-musics{
     width: 200px;
     height: 200px;
     background-color: #0c0404;
+    margin: 5px;
+
+    -webkit-transform:scale(0.9); 
+      -moz-transform:scale(0.9); 
+   	-o-transform:scale(0.9);
+   	   transform:scale(0.9);
 }
 
-.blocos-musics:hover{
+/* .blocos-musics:hover{
     transform: scale(1.2);
     background-color: #FFF;
+} */
+
+.list-wrapper{
+    position: relative;
 }
 
-.wrapper{
-    width: 11em;
+#news{
+    clear: both;
+}
+
+#popular{
+    clear: both;
 }

@@ -16,7 +16,39 @@ $('#btn-signup').caphButton({
     },
     toggle: true,
     onSelected: function (event, originalEvent, selected) {
-    	location.href = "../pages/home.html";
+
+        let name = $('#inp-name').val()
+        let email = $('#inp-email').val()
+        let password = $('#inp-password').val()
+        let confirm_password = $('#inp-re-password').val()
+
+
+        if(password != confirm_password){
+            alert('Confirmação de senha deve ser igual!')
+        }
+
+        let data = {
+            name : name,
+            email: email,
+            password: password
+        }
+
+        console.log(data)
+
+        let url = API_DEEZER_URL + "/autheticate/create-user";
+
+        $.ajax({
+            url: url,
+            type: 'POST',
+            data: data,
+            success: function (data) {
+                console.log(data);
+                location.href = "../pages/home.html";
+            },
+            error:function (e) {
+                console.log(e.responseJSON.message)
+            }
+        });
     }
 });
 

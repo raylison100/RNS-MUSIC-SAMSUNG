@@ -64,6 +64,9 @@
         <input id="inp-search" type="text" name="search">
 
         <div focusable class="btns-letter">
+            <div focusable  style="display: none;"></div>
+            <div focusable  style="display: none;"></div>
+            <div focusable  style="display: none;"></div>
         	<div id="btn-a" focusable data-focusable-initial-focus="true" class="caph-button"><span>a</span></div>
             <div id="btn-b" focusable class="caph-button"><span>b</span></div>
             <div id="btn-c" focusable class="caph-button"><span>c</span></div>
@@ -90,7 +93,7 @@
             <div id="btn-y" focusable class="caph-button"><span>y</span></div>
             <div id="btn-z" focusable class="caph-button"><span>z</span></div>
         </div>
-        <div focusable class="btns-numeric">
+        <div class="btns-numeric">
            <div id="btn-0" focusable class="caph-button"><span id="0">0</span></div>
            <div id="btn-1" focusable class="caph-button"><span id="1">1</span></div> 
            <div id="btn-2" focusable class="caph-button"><span id="2">2</span></div> 
@@ -102,13 +105,15 @@
            <div id="btn-8" focusable class="caph-button"><span id="8">8</span></div> 
            <div id="btn-9" focusable class="caph-button"><span id="9">9</span></div> 
         </div>
-        <div focusable class="btns-dir">
+        <div class="btns-dir">
             <div focusable id="btn-space"><i id="icon-space" class="material-icons">space_bar</i></div>
             <div focusable id="btn-backspace"><i id="icon-backspace" class="material-icons">west</i></div>
         </div>
     </form>
-    </main>
 
+    <div id="list"></div>
+    </main>
+    <script src="../scripts/env.js"></script>
     <script src="../scripts/search.js"></script>
     <script src="../scripts/nav.js"></script>
 </body>

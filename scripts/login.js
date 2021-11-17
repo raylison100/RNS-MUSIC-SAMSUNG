@@ -16,7 +16,30 @@ $('#btn-login').caphButton({
     },
     toggle: true,
     onSelected: function (event, originalEvent, selected) {
-    	location.href = "./pages/home.html";
+        let email = $('#inp-email').val()
+        let password = $('#inp-password').val()
+
+        let data = {
+            email: email,
+            password: password
+        }
+
+        console.log(data)
+
+        let url = API_DEEZER_URL + "/autheticate/login";
+
+        $.ajax({
+            url: url,
+            type: 'POST',
+            data: data,
+            success: function (data) {
+                console.log(data);
+                location.href = "./pages/home.html";
+            },
+            error:function (e) {
+                console.log(e.responseJSON.message)
+            }
+        });
     }
 });
 
