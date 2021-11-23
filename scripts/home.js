@@ -1,13 +1,13 @@
 init();
 
-function init(){
+function init() {
 	recommendations()
 	news()
 	popular()
 }
 
 
-function recommendations(){
+function recommendations() {
 	var url = API_DEEZER_URL + "/deezer/user/me/recommendations/playlists";
 
 	$.ajax({
@@ -16,13 +16,13 @@ function recommendations(){
 		success: function (result) {
 			setResultRecommendation(result.data);
 		},
-		error:function (e) {
+		error: function (e) {
 			console.log(e.responseJSON.message)
 		}
 	});
 }
 
-function news(){
+function news() {
 	var url = API_DEEZER_URL + "/deezer/genre/0/artists";
 
 	$.ajax({
@@ -31,13 +31,13 @@ function news(){
 		success: function (result) {
 			setResultNews(result.data);
 		},
-		error:function (e) {
+		error: function (e) {
 			console.log(e.responseJSON.message)
 		}
 	});
 }
 
-function popular(){
+function popular() {
 	var url = API_DEEZER_URL + "/deezer/chart";
 
 	$.ajax({
@@ -46,28 +46,34 @@ function popular(){
 		success: function (result) {
 			setResultPopular(result.playlists.data);
 		},
-		error:function (e) {
+		error: function (e) {
 			console.log(e.responseJSON.message)
 		}
 	});
 }
 
 
-function setResultRecommendation(recomendacions){
-	if (recomendacions.length > 10){
-		recomendacions = recomendacions.slice(0,10)
+function setResultRecommendation(recomendacions) {
+	if (recomendacions.length > 10) {
+		recomendacions = recomendacions.slice(0, 10)
 	}
 
 	$('#recomendationList').caphList({
-		items : recomendacions,
+		items: recomendacions,
 		template: 'template1',
 		containerClass: 'list-group',
 		wrapperClass: 'list-wrapper',
-		onFocusItemView: function(context) {
+		onFocusItemView: function (context) {
 			console.log('focus', context);
 		},
 	});
 
+	let albuns = $('#recomendationList').find('.capa');
+
+	albuns.each(function (index) {
+		$(this).attr("src", recomendacions[index].picture_medium);
+	});
+
 	$('.item-blocos-musics').caphButton({
 		onFocused: function (event) {
 			let div = $(event.currentTarget).find('div');
@@ -92,16 +98,22 @@ function setResultRecommendation(recomendacions){
 	});
 }
 
-function setResultNews(news){
-	if (news.length > 10){
-		news = news.slice(0,10)
+function setResultNews(news) {
+	if (news.length > 10) {
+		news = news.slice(0, 10)
 	}
 
 	$('#newsList').caphList({
-		items : news,
+		items: news,
 		template: 'template1',
 		containerClass: 'list-group',
 		wrapperClass: 'list-wrapper',
+	});
+
+	let albuns = $('#newsList').find('.capa');
+
+	albuns.each(function (index) {
+		$(this).attr("src", news[index].picture_medium);
 	});
 
 	$('.item-blocos-musics').caphButton({
@@ -128,16 +140,22 @@ function setResultNews(news){
 	});
 }
 
-function setResultPopular(popular){
-	if (popular.length > 10){
-		popular = popular.slice(0,10)
+function setResultPopular(popular) {
+	if (popular.length > 10) {
+		popular = popular.slice(0, 10)
 	}
-	
+
 	$('#popularList').caphList({
-		items : popular,
+		items: popular,
 		template: 'template1',
 		containerClass: 'list-group',
 		wrapperClass: 'list-wrapper',
+	});
+
+	let albuns = $('#popularList').find('.capa');
+
+	albuns.each(function (index) {
+		$(this).attr("src", popular[index].picture_medium);
 	});
 
 	$('.item-blocos-musics').caphButton({

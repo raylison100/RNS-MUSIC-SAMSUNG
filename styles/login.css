@@ -1,5 +1,5 @@
 body {
-    background-color: #833636;
+    background-color: #301a1a;
 }
 
 
@@ -8,7 +8,7 @@ body {
     width: 25%;
     float: left;
     font-size: 2em;
-    color: #d8acac;
+    color: #fff;
     margin-top: 2%;
 }
 
@@ -58,7 +58,7 @@ input {
 
 #btn-login{
     margin-top: 2.8em;
-    background-color: #ab8080;
+    background-color: #000;
 }
 
 #btn-new-user{

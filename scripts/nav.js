@@ -1,16 +1,16 @@
 $('#home').caphButton({
     onFocused: function (event) {
-	   	$(event.currentTarget).css({
-	   	    'background-color': '#a71717',
-	   		'color': '#FFF'
-	    });
+        $(event.currentTarget).css({
+            'background-color': '#a71717',
+            'color': '#FFF'
+        });
         console.log("focou home")
     },
     onBlurred: function (event) {
-	   	$(event.currentTarget).css({
-	   	    'background-color': '#aaa3a3',
-	   		'color': 'rgb(78, 72, 72)'
-	    });
+        $(event.currentTarget).css({
+            'background-color': '#aaa3a3',
+            'color': 'rgb(78, 72, 72)'
+        });
         console.log("desfocou home");
     },
     focusOption: {
@@ -22,24 +22,24 @@ $('#home').caphButton({
     },
     toggle: true,
     onSelected: function (event, originalEvent, selected) {
-	    location.href = "../pages/home.html";
+        location.href = "../pages/home.html";
         console.log("clicou home")
     }
 });
 
 $('#my-list').caphButton({
     onFocused: function (event) {
-	   	$(event.currentTarget).css({
-	   	    'background-color': '#a71717',
-	   		'color': '#FFF'
-	    });
+        $(event.currentTarget).css({
+            'background-color': '#a71717',
+            'color': '#FFF'
+        });
         console.log("focou list")
     },
     onBlurred: function (event) {
-	   	$(event.currentTarget).css({
-	   	    'background-color': '#aaa3a3',
-	   		'color': 'rgb(78, 72, 72)'
-	    });
+        $(event.currentTarget).css({
+            'background-color': '#aaa3a3',
+            'color': 'rgb(78, 72, 72)'
+        });
         console.log("desfocou list")
     },
     focusOption: {
@@ -51,24 +51,24 @@ $('#my-list').caphButton({
     },
     toggle: true,
     onSelected: function (event, originalEvent, selected) {
-	    location.href = "../pages/my-list.html";
+        location.href = "../pages/my-list.html";
         console.log("clicou list")
     }
 });
 
 $('#search').caphButton({
     onFocused: function (event) {
-	   	$(event.currentTarget).css({
-	   	    'background-color': '#a71717',
-	   		'color': '#FFF'
-	    });
+        $(event.currentTarget).css({
+            'background-color': '#a71717',
+            'color': '#FFF'
+        });
         console.log("focou buscar")
     },
     onBlurred: function (event) {
-	   	$(event.currentTarget).css({
-	   	    'background-color': '#aaa3a3',
-	   		'color': 'rgb(78, 72, 72)'
-	    });
+        $(event.currentTarget).css({
+            'background-color': '#aaa3a3',
+            'color': 'rgb(78, 72, 72)'
+        });
         console.log("desfocou buscar")
     },
     focusOption: {
@@ -80,22 +80,24 @@ $('#search').caphButton({
     },
     toggle: true,
     onSelected: function (event, originalEvent, selected) {
-	     console.log("opa")
-	     location.href = "../pages/search.html";
-         console.log("clicou search")
+        console.log("opa")
+        location.href = "../pages/search.html";
+        console.log("clicou search")
     }
 });
 
 $('#account-icon').caphButton({
     onFocused: function (event) {
         $(event.currentTarget).closest('div').css({
-            'transform': 'scale(1.3)'
+            'background-color': '#a71717',
+            'color': '#FFF'
         });
         console.log("focou account")
     },
     onBlurred: function (event) {
         $(event.currentTarget).closest('div').css({
-            'transform': 'scale(1)'
+            'background-color': '#aaa3a3',
+            'color': 'rgb(78, 72, 72)'
         });
         console.log("desfocou account")
     },
@@ -108,8 +110,8 @@ $('#account-icon').caphButton({
     },
     toggle: true,
     onSelected: function (event, originalEvent, selected) {
-	     console.log("opa")
-	     location.href = "../index.html";
-         console.log("clicou account")
+        console.log("opa")
+        location.href = "../index.html";
+        console.log("clicou account")
     }
 });

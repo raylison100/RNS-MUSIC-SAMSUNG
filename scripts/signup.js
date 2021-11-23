@@ -1,12 +1,19 @@
 $('#btn-signup').caphButton({
     onFocused: function (event) {
-        $(event.currentTarget).css("background-color", "#862a2a");
+        $(event.currentTarget).css({
+            'color': '#000',
+            'background-color': '#FFF',
+        });
 
     },
+
     onBlurred: function (event) {
-        $(event.currentTarget).css("background-color", "#ab8080");
-
+        $(event.currentTarget).css({
+            "background-color": "#000",
+            "color": "#FFF",
+        });
     },
+
     focusOption: {
         name: "btn-login'",
         depth: 0,
@@ -23,12 +30,12 @@ $('#btn-signup').caphButton({
         let confirm_password = $('#inp-re-password').val()
 
 
-        if(password != confirm_password){
+        if (password != confirm_password) {
             alert('Confirmação de senha deve ser igual!')
         }
 
         let data = {
-            name : name,
+            name: name,
             email: email,
             password: password
         }
@@ -45,7 +52,7 @@ $('#btn-signup').caphButton({
                 console.log(data);
                 location.href = "../pages/home.html";
             },
-            error:function (e) {
+            error: function (e) {
                 console.log(e.responseJSON.message)
             }
         });
@@ -54,11 +61,17 @@ $('#btn-signup').caphButton({
 
 $('#btn-cancel').caphButton({
     onFocused: function (event) {
-        $(event.currentTarget).css("background-color", "#862a2a");
-
+        $(event.currentTarget).css({
+            'color': '#000',
+            'background-color': '#FFF',
+        });
     },
+
     onBlurred: function (event) {
-        $(event.currentTarget).css("background-color", "#3e3434");
+        $(event.currentTarget).css({
+            "background-color": "#3e3434",
+            "color": "#FFF"
+        });
 
     },
     focusOption: {
@@ -70,97 +83,97 @@ $('#btn-cancel').caphButton({
     },
     toggle: true,
     onSelected: function (event, originalEvent, selected) {
-    	location.href = "../index.html";
+        location.href = "../index.html";
     }
 });
 
 $('#inp-name').caphInput({
-    onFocused :function(event,originalEvent){
-    	 $(event.currentTarget).css({
-             border : '3px solid red'
-         });
-    },
-    onBlurred :function(event,originalEvent){
+    onFocused: function (event, originalEvent) {
         $(event.currentTarget).css({
-            border : ''
+            border: '3px solid red'
         });
     },
-    onChanged :function(event,value){
-    	console.log("value", value);
+    onBlurred: function (event, originalEvent) {
+        $(event.currentTarget).css({
+            border: ''
+        });
     },
-  	type : 'text',
-		value:''
+    onChanged: function (event, value) {
+        console.log("value", value);
+    },
+    type: 'text',
+    value: ''
 });
 
 $('#inp-name').caphInput({
-    onFocused :function(event,originalEvent){
-    	 $(event.currentTarget).css({
-             border : '3px solid red'
-         });
-    },
-    onBlurred :function(event,originalEvent){
+    onFocused: function (event, originalEvent) {
         $(event.currentTarget).css({
-            border : ''
+            border: '3px solid red'
         });
     },
-    onChanged :function(event,value){
-    	console.log("value", value);
+    onBlurred: function (event, originalEvent) {
+        $(event.currentTarget).css({
+            border: ''
+        });
     },
-  	type : 'text',
-		value:''
+    onChanged: function (event, value) {
+        console.log("value", value);
+    },
+    type: 'text',
+    value: ''
 });
 
 $('#inp-email').caphInput({
-    onFocused :function(event,originalEvent){
-    	 $(event.currentTarget).css({
-             border : '3px solid red'
-         });
-    },
-    onBlurred :function(event,originalEvent){
+    onFocused: function (event, originalEvent) {
         $(event.currentTarget).css({
-            border : ''
+            border: '3px solid red'
         });
     },
-    onChanged :function(event,value){
-    	console.log("value", value);
+    onBlurred: function (event, originalEvent) {
+        $(event.currentTarget).css({
+            border: ''
+        });
     },
-  	type : 'email',
-		value:''
+    onChanged: function (event, value) {
+        console.log("value", value);
+    },
+    type: 'email',
+    value: ''
 });
 
 $('#inp-password').caphInput({
-    onFocused :function(event,originalEvent){
-    	 $(event.currentTarget).css({
-             border : '3px solid red'
-         });
-    },
-    onBlurred :function(event,originalEvent){
+    onFocused: function (event, originalEvent) {
         $(event.currentTarget).css({
-            border : ''
+            border: '3px solid red'
         });
     },
-    onChanged :function(event,value){
-    	console.log("value", value);
+    onBlurred: function (event, originalEvent) {
+        $(event.currentTarget).css({
+            border: ''
+        });
     },
-  	type : 'password',
-		value:''
+    onChanged: function (event, value) {
+        console.log("value", value);
+    },
+    type: 'password',
+    value: ''
 });
 $('#inp-re-password').caphInput({
-    onFocused :function(event,originalEvent){
-    	 $(event.currentTarget).css({
-             border : '3px solid red'
-         });
-    },
-    onBlurred :function(event,originalEvent){
+    onFocused: function (event, originalEvent) {
         $(event.currentTarget).css({
-            border : ''
+            border: '3px solid red'
         });
     },
-    onChanged :function(event,value){
-    	console.log("value", value);
+    onBlurred: function (event, originalEvent) {
+        $(event.currentTarget).css({
+            border: ''
+        });
     },
-  	type : 'password',
-		value:''
+    onChanged: function (event, value) {
+        console.log("value", value);
+    },
+    type: 'password',
+    value: ''
 });
 
 
