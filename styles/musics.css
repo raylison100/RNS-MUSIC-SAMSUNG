@@ -13,8 +13,11 @@
     height: 200px;
     background-color: #0c0404;
     margin: 20px;
-    border-radius: 50px;
     float: left;
+}
+
+.blocos-musics img{
+    border-radius: 50px;
 }
 
 .menu-info{
@@ -99,7 +102,7 @@
 }
 
 .icon-list-music{
-    background-color: #471616;
+    background-color: #301a1a;
     display: flex;
     align-items: center;
     padding: 2px;

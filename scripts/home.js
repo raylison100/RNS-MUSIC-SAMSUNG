@@ -72,6 +72,7 @@ function setResultRecommendation(recomendacions) {
 
 	albuns.each(function (index) {
 		$(this).attr("src", recomendacions[index].picture_medium);
+		$(this).attr("id", recomendacions[index].id);
 	});
 
 	$('.item-blocos-musics').caphButton({
@@ -92,6 +93,10 @@ function setResultRecommendation(recomendacions) {
 		},
 		toggle: true,
 		onSelected: function (event, selected) {
+			let id = $(event.currentTarget).find('.capa').attr('id');
+			let meuStorage = localStorage;
+			meuStorage.setItem('playlist', id);
+			console.log(id)
 			location.href = "../pages/musics.html";
 			console.log("clicou item")
 		}
@@ -114,6 +119,7 @@ function setResultNews(news) {
 
 	albuns.each(function (index) {
 		$(this).attr("src", news[index].picture_medium);
+		$(this).attr("id", news[index].id);
 	});
 
 	$('.item-blocos-musics').caphButton({
@@ -134,6 +140,10 @@ function setResultNews(news) {
 		},
 		toggle: true,
 		onSelected: function (event, selected) {
+			let id = $(event.currentTarget).find('.capa').attr('id');
+			let meuStorage = localStorage;
+			meuStorage.setItem('playlist', id);
+			console.log(id)
 			location.href = "../pages/musics.html";
 			console.log("clicou item")
 		}
@@ -156,6 +166,7 @@ function setResultPopular(popular) {
 
 	albuns.each(function (index) {
 		$(this).attr("src", popular[index].picture_medium);
+		$(this).attr("id", popular[index].id);
 	});
 
 	$('.item-blocos-musics').caphButton({
@@ -176,6 +187,10 @@ function setResultPopular(popular) {
 		},
 		toggle: true,
 		onSelected: function (event, selected) {
+			let id = $(event.currentTarget).find('.capa').attr('id');
+			let meuStorage = localStorage;
+			meuStorage.setItem('playlist', id);
+			console.log(id)
 			location.href = "../pages/musics.html";
 			console.log("clicou item")
 		}
