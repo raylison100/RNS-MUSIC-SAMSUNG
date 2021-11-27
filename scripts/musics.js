@@ -5,7 +5,7 @@ this.init();
 function init() {
     let meuStorage = localStorage;
     playlist_id = meuStorage.getItem('playlist');
-    console.log(playlist_id)
+    meuStorage.setItem('music', 'empty');
 
     var url = API_DEEZER_URL + "/deezer/user/me/playlists";
 
@@ -70,100 +70,127 @@ function setName(name) {
 function setMusics(musics) {
     let list = $('#list').find('ul');
 
-    console.log(musics.length)
-
     $(musics).each(function (index) {
         let html = `
             <li>
                 <span focusable class="musics-tracks" id="${musics[index].id}">${musics[index].title}</span>
                 <div focusable class="icon-list-music">
-                    <i id="favorite-list" class="material-icons icon">favorite</i>
+                    <i id="favorite-list" class="material-icons icon" _id=${musics[index].id}>favorite</i>
                 </div>
             </li>
         `
         list.append(html);
+    });
 
-        $('.musics-tracks').caphButton({
-            onFocused: function (event) {
-                $(event.currentTarget).css({
-                    "background-color": "#a71717",
-                    "color": "#FFF"
+    $('.musics-tracks').caphButton({
+        onFocused: function (event) {
+            $(event.currentTarget).css({
+                "background-color": "#a71717",
+                "color": "#FFF"
+            });
+            console.log("focou item")
+        },
+        onBlurred: function (event) {
+            $(event.currentTarget).css({
+                "background-color": "#FFF",
+                "color": "#000"
+            });
+            console.log("focou item")
+        },
+        toggle: true,
+        onSelected: function (event) {
+            let id = $(event.currentTarget).attr('id');
+            let meuStorage = localStorage;
+            meuStorage.setItem('music', id);
+            console.log(id)
+            location.href = `../pages/player.html`;
+        }
+    });
+
+    $('.icon').caphButton({
+        onFocused: function (event) {
+            $(event.currentTarget).css({
+                'transform': 'scale(1.3)',
+                'border': '2px solid #FFF',
+                'border-radius': '25px'
+            });
+            console.log("focou item")
+        },
+        onBlurred: function (event) {
+            $(event.currentTarget).css({
+                'transform': 'scale(1)',
+                'border': 'none',
+            });
+            console.log("focou item")
+        },
+        toggle: true,
+        onSelected: function (event) {
+            let track_id = $(event.currentTarget).attr('_id');
+
+            if (!$(event.currentTarget).hasClass('active')) {
+                var url = API_DEEZER_URL + "/deezer/create/user/1458941346/tracks?track_id=" + track_id;
+
+                $.ajax({
+                    url: url,
+                    type: 'POST',
+                    success: function () {
+                        console.log('Favoritou track')
+                        $(event.currentTarget).css({
+                            "color": "#a71717",
+                        });
+                    },
+                    error: function (e) {
+                        console.log(e.responseJSON.message)
+                    }
                 });
-                console.log("focou item")
-            },
-            onBlurred: function (event) {
-                $(event.currentTarget).css({
-                    "background-color": "#FFF",
-                    "color": "#000"
+            } else {
+
+                var url = API_DEEZER_URL + "/deezer/delete/user/1458941346/tracks?track_id=" + track_id;
+
+                $.ajax({
+                    url: url,
+                    type: 'DELETE',
+                    success: function () {
+                        console.log('Des Favoritou track')
+                        $(event.currentTarget).css({
+                            "color": "#FFF",
+                        });
+                    },
+                    error: function (e) {
+                        console.log(e.responseJSON.message)
+                    }
                 });
-                console.log("focou item")
-            },
-            toggle: true,
-            onSelected: function (event, selected) {
-                let id = $(event.currentTarget).find('.blocos-musics').attr('id');
-                let meuStorage = localStorage;
-                meuStorage.setItem('playlist', id);
-                console.log(id)
-                location.href = `../pages/musics.html`;
             }
-        });
+        }
+    });
+}
 
-        $('.icon').caphButton({
-            onFocused: function (event) {
-                $(event.currentTarget).css({
-                    'transform': 'scale(1.3)',
-                    'border': '2px solid #FFF',
-                    'border-radius': '25px'
-                });
-                console.log("focou item")
-            },
-            onBlurred: function (event) {
-                $(event.currentTarget).css({
-                    'transform': 'scale(1)',
-                    'border': 'none',
-                });
-                console.log("focou item")
-            },
-            toggle: true,
-            onSelected: function (event, selected) {
-                let track_id = $(event.currentTarget).attr('id');
+function setMusicsFavorites(musics) {
+    var url = API_DEEZER_URL + "/deezer/playlist/2966492746";
 
-                if (!$(event.currentTarget).hasClass('active')) {
-                    var url = API_DEEZER_URL + "/deezer/create/user/1458941346/tracks?track_id=" + track_id;
+    tracks = $.ajax({
+        url: url,
+        type: 'GET',
+        success: function (result) {
+            validTrack(musics, result.tracks.data)
+        },
+        error: function (e) {
+            console.log(e.responseJSON.message)
+        }
+    });
+}
 
-                    $.ajax({
-                        url: url,
-                        type: 'POST',
-                        success: function () {
-                            console.log('Favoritou track')
-                            $(event.currentTarget).css({
-                                "color": "#a71717",
-                            });
-                        },
-                        error: function (e) {
-                            console.log(e.responseJSON.message)
-                        }
-                    });
-                } else {
+function validTrack(musics, myTracks) {
+    myTracks = myTracks.map((item) => { return item.id })
 
-                    var url = API_DEEZER_URL + "/deezer/delete/user/1458941346/tracks?track_id=" + track_id;
+    musics.forEach(element => {
+        favorited = myTracks.filter((item) => { return item == element.id })
 
-                    $.ajax({
-                        url: url,
-                        type: 'DELETE',
-                        success: function () {
-                            console.log('Des Favoritou track')
-                            $(event.currentTarget).css({
-                                "color": "#FFF",
-                            });
-                        },
-                        error: function (e) {
-                            console.log(e.responseJSON.message)
-                        }
-                    });
-                }
-            }
-        });
+        if (favorited.length > 0) {
+            $("[_id=" + element.id + "]").css({
+                "color": "#a71717",
+            }).addClass('active');
+        }
     });
 }
 
@@ -185,11 +212,7 @@ $('#play-list').caphButton({
     },
     toggle: true,
     onSelected: function (event, selected) {
-        let id = $(event.currentTarget).find('.blocos-musics').attr('id');
-        let meuStorage = localStorage;
-        meuStorage.setItem('playlist', id);
-        console.log(id)
-        location.href = `../pages/musics.html`;
+        location.href = `../pages/player.html`;;
     }
 });
 

@@ -2,7 +2,6 @@
 <html>
 
 <head>
-
     <!-- include CAPH 3.1.0 default package -->
     <link href="../lib/caph/3.1.0/caph.min.css" rel="stylesheet" type="text/stylesheet">
 
@@ -62,22 +61,40 @@
         </div>
     </nav>
 
-    <main class="container">
-        <div id="info">
-            <div class="blocos-musics"></div>
+    <main focusable class="container">
+        <div class="music-player">
+            <audio src="" id="audio"></audio>
+            <h1 class="music-name">song one</h1>
+            <p class="artist-name">artist</p>
+
+            <div class="disk"></div>
+
+            <div class="song-slider">
+                <input type="range" value="0" class="seek-bar" disabled>
+                <span class="current-time">00:00</span>
+                <span class="song-duration">00:00</span>
+            </div>
+
+            <div focusable class="controls">
+                <div focusable>
+                    <button class="btn backward-btn"><i id="icon-previus"
+                            class="material-icons">skip_previous</i></button>
+                </div>
+
+                <div focusable>
+                    <button class="play-btn pause">
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+                <div>
+                    <button class="btn forward-btn"><i id="icon-next" class="material-icons">skip_next</i></button>
+                </div>
+            </div>
         </div>
-
-        <div id="player">
-            <div focusable id="btn-previus"><i id="icon-previus" class="material-icons">skip_previous</i></div>
-            <div focusable id="btn-play"><i id="icon-play" class="material-icons">play_circle</i></div>
-            <div focusable id="btn-next"><i id="icon-next" class="material-icons">skip_next</i></div>
-
-            <input type="range" id="seek" value="0" max="" />
-        </div>
-
     </main>
-
-    <script src="../scripts/my-list.js"></script>
+    <script src="../scripts/env.js"></script>
+    <script src="../scripts/player.js"></script>
     <script src="../scripts/nav.js"></script>
 </body>
 
