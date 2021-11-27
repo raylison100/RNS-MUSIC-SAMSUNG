@@ -71,3 +71,8 @@ nav {
     background-color: #a71717;
     color: #FFF;
 }
+
+
+#account-icon i{
+    font-size: 35px !important;
+}

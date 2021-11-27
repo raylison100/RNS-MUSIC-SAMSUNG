@@ -36,7 +36,7 @@ function start(data) {
     track = data.tracks.data;
 
     if (music == 'empty') {
-        music = tracks[0]
+        music = track[0]
     } else {
         selectMusic()
     }
@@ -72,7 +72,7 @@ function setMusic(i) {
     setTimeout(() => {
         seekBar.attr('max', song.duration);
         musicDuration.html(formatTime(song.duration));
-    }, 300);
+    }, 500);
 }
 
 function formatTime(time) {
@@ -88,7 +88,6 @@ function formatTime(time) {
 }
 
 function play() {
-
     if (playBtn.hasClass('pause')) {
         audio.play();
         playBtn.removeClass('pause');
@@ -121,13 +120,19 @@ function backward() {
     playMusic();
 }
 
+function playMusic() {
+    audio.play();
+    playBtn.removeClass('pause');
+    disk.addClass('play')
+}
+
 
 $('.play-btn').caphButton({
     onFocused: function (event) {
         $(event.currentTarget).css({
             'transform': 'scale(1.3)',
             'border': '2px solid #FFF',
-            'border-radius': '25px'
+            'border-radius': '50%'
         });
         console.log("focou item")
     },
@@ -149,7 +154,7 @@ $('.backward-btn').caphButton({
         $(event.currentTarget).css({
             'transform': 'scale(1.3)',
             'border': '2px solid #FFF',
-            'border-radius': '25px'
+            'border-radius': '50%'
         });
         console.log("focou item")
     },
@@ -171,7 +176,7 @@ $('.forward-btn').caphButton({
         $(event.currentTarget).css({
             'transform': 'scale(1.3)',
             'border': '2px solid #FFF',
-            'border-radius': '25px'
+            'border-radius': '50%'
         });
         console.log("focou item")
     },
