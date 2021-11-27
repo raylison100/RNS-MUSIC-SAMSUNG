@@ -53,6 +53,7 @@ $('#btn-signup').caphButton({
                 location.href = "../pages/home.html";
             },
             error: function (e) {
+                alert(e.responseJSON[0].message)
                 console.log(e.responseJSON.message)
             }
         });

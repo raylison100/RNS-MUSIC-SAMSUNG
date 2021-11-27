@@ -37,7 +37,9 @@ function setResultFavorits(favorits) {
 		$('#list').append(`
 			<div class="item-blocos-musics" focusable data-focusable-depth="0" data-focusable-group="list">
 				<a  href="../pages/musics.html">
-					<div class="blocos-musics" id="${favorits[index].id}"><img class="capa" src="${favorits[index].picture_medium}" width="200" height="200"></div>
+					<div class="blocos-musics" id="${favorits[index].id}">
+						<img class="capa" src="${favorits[index].picture_medium}" width="200" height="200">
+					</div>
 				</a>  
 			</div>  
 		`)

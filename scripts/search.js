@@ -1,82 +1,91 @@
-function search(search){
-	var url = API_DEEZER_URL + "/deezer/search?q="+search;
+function search(search) {
+    var url = API_DEEZER_URL + "/deezer/search/playlist?q=" + search;
 
-	$.ajax({
-		url: url,
-		type: 'GET',
-		success: function (result) {
-			setResultSearch(result.data);
-		},
-		error:function (e) {
-			console.log(e.responseJSON.message)
-		}
-	});
+    $.ajax({
+        url: url,
+        type: 'GET',
+        success: function (result) {
+            setResultSearch(result.data);
+        },
+        error: function (e) {
+            console.log(e.responseJSON.message)
+        }
+    });
 }
 
-function setResultSearch(result){
+function setResultSearch(result) {
 
-    $('#list').clear
+    $('#list').empty()
 
-	if(result.length > 5){
-		for (var i = 0; i < 5; i++) {
-			$('#list').append(`
+    if (result.length > 5) {
+        for (var i = 0; i < 5; i++) {
+            $('#list').append(`
 				<div style='display: none;' class="item-blocos-musics" focusable data-focusable-depth="0" data-focusable-group="list">
 					<a  href="../pages/musics.html">
 						<div class="blocos-musics"></div>
 					</a>  
 				</div>  
 			`)
-		}
-	}
+        }
+    }
 
-	$.each( result, function() {
-		$('#list').append(`
+    $.each(result, function (index) {
+        $('#list').append(`
 			<div class="item-blocos-musics" focusable data-focusable-depth="0" data-focusable-group="list">
 				<a  href="../pages/musics.html">
-					<div class="blocos-musics"></div>
-				</a>  
+					<div class="blocos-musics" id=${result[index].id}>
+                    <img class="capa" src="${result[index].picture_medium}" width="200" height="200">
+                    </div>
+				</a>
+                <div class="title">
+                    <span>
+                        ${result[index].title.slice(0, 15)}
+                    </span>
+                </div>  
 			</div>  
 		`)
-	});
-	
-	$('.item-blocos-musics').caphButton({
-		onFocused: function (event) {
-			$(event.currentTarget).find('div').css({
-				'transform': 'scale(1.2)',
-				'background-color': '#FFF',
-			});
-			console.log("focou item")
-		},
-		onBlurred: function (event) {
-			$(event.currentTarget).find('div').css({
-				'transform': 'scale(1)',
-				'background-color': '#000',
-			});
-			console.log("focou item")
-		},
-		toggle: true,
-		onSelected: function (event, selected) {
-			 location.href = "../pages/musics.html";
-			 console.log("clicou item")
-		}
-	});
+    });
+
+    $('.item-blocos-musics').caphButton({
+        onFocused: function (event) {
+            $(event.currentTarget).find('div').css({
+                'transform': 'scale(1.2)',
+            });
+            console.log("focou item")
+        },
+        onBlurred: function (event) {
+            $(event.currentTarget).find('div').css({
+                'transform': 'scale(1)',
+            });
+            console.log("focou item")
+        },
+        toggle: true,
+        onSelected: function (event, selected) {
+            let id = $(event.currentTarget).find('.blocos-musics').attr('id');
+            let meuStorage = localStorage;
+            meuStorage.setItem('playlist', id);
+            console.log(id)
+            location.href = `../pages/musics.html`;
+            console.log("clicou item")
+        }
+    });
 }
 
 
 
 $('#btn-a').caphButton({
-    onFocused :function(event){
+    onFocused: function (event) {
 
         $(event.currentTarget).find('span').css({
-		    'transform' : 'scale(1.7)',
-            'background-color' : 'rgb(0, 0, 0)',
+            'transform': 'scale(1.7)',
+            'background-color': 'rgb(0, 0, 0)',
             'color': 'rgb(116, 9, 9)',
             'animation': 'reverse'
         });
 
-         console.log("a")
+        console.log("a")
     },
-    onBlurred :function(event){
+    onBlurred: function (event) {
         $(event.currentTarget).find('span').removeAttr("style")
     },
     onSelected: function (event, originalEvent, selected) {
@@ -88,16 +97,16 @@ $('#btn-a').caphButton({
 });
 
 $('#btn-b').caphButton({
-    onFocused :function(event){
+    onFocused: function (event) {
         $(event.currentTarget).find('span').css({
-		    'transform' : 'scale(1.7)',
-            'background-color' : 'rgb(0, 0, 0)',
+            'transform': 'scale(1.7)',
+            'background-color': 'rgb(0, 0, 0)',
             'color': 'rgb(116, 9, 9)',
             'animation': 'reverse'
         });
-         console.log("b")
+        console.log("b")
     },
-    onBlurred :function(event){
+    onBlurred: function (event) {
         $(event.currentTarget).find('span').removeAttr("style")
     },
     onSelected: function (event, originalEvent, selected) {
@@ -109,16 +118,16 @@ $('#btn-b').caphButton({
 });
 
 $('#btn-c').caphButton({
-    onFocused :function(event){
+    onFocused: function (event) {
         $(event.currentTarget).find('span').css({
-		    'transform' : 'scale(1.7)',
-            'background-color' : 'rgb(0, 0, 0)',
+            'transform': 'scale(1.7)',
+            'background-color': 'rgb(0, 0, 0)',
             'color': 'rgb(116, 9, 9)',
             'animation': 'reverse'
         });
-         console.log("c")
+        console.log("c")
     },
-    onBlurred :function(event){
+    onBlurred: function (event) {
         $(event.currentTarget).find('span').removeAttr("style")
     },
     onSelected: function (event, originalEvent, selected) {
@@ -130,16 +139,16 @@ $('#btn-c').caphButton({
 });
 
 $('#btn-d').caphButton({
-    onFocused :function(event){
+    onFocused: function (event) {
         $(event.currentTarget).find('span').css({
-		    'transform' : 'scale(1.7)',
-            'background-color' : 'rgb(0, 0, 0)',
+            'transform': 'scale(1.7)',
+            'background-color': 'rgb(0, 0, 0)',
             'color': 'rgb(116, 9, 9)',
             'animation': 'reverse'
         });
-         console.log("d")
+        console.log("d")
     },
-    onBlurred :function(event){
+    onBlurred: function (event) {
         $(event.currentTarget).find('span').removeAttr("style");
     },
     onSelected: function (event, originalEvent, selected) {
@@ -152,16 +161,16 @@ $('#btn-d').caphButton({
 
 
 $('#btn-e').caphButton({
-    onFocused :function(event){
+    onFocused: function (event) {
         $(event.currentTarget).find('span').css({
-		    'transform' : 'scale(1.7)',
-            'background-color' : 'rgb(0, 0, 0)',
+            'transform': 'scale(1.7)',
+            'background-color': 'rgb(0, 0, 0)',
             'color': 'rgb(116, 9, 9)',
             'animation': 'reverse'
         });
-         console.log("e")
+        console.log("e")
     },
-    onBlurred :function(event){
+    onBlurred: function (event) {
         $(event.currentTarget).find('span').removeAttr("style")
     },
     onSelected: function (event, originalEvent, selected) {
@@ -174,16 +183,16 @@ $('#btn-e').caphButton({
 
 
 $('#btn-f').caphButton({
-    onFocused :function(event){
+    onFocused: function (event) {
         $(event.currentTarget).find('span').css({
-		    'transform' : 'scale(1.7)',
-            'background-color' : 'rgb(0, 0, 0)',
+            'transform': 'scale(1.7)',
+            'background-color': 'rgb(0, 0, 0)',
             'color': 'rgb(116, 9, 9)',
             'animation': 'reverse'
         });
-         console.log("f")
+        console.log("f")
     },
-    onBlurred :function(event){
+    onBlurred: function (event) {
         $(event.currentTarget).find('span').removeAttr("style")
     },
     onSelected: function (event, originalEvent, selected) {
@@ -196,16 +205,16 @@ $('#btn-f').caphButton({
 
 
 $('#btn-g').caphButton({
-    onFocused :function(event){
+    onFocused: function (event) {
         $(event.currentTarget).find('span').css({
-		    'transform' : 'scale(1.7)',
-            'background-color' : 'rgb(0, 0, 0)',
+            'transform': 'scale(1.7)',
+            'background-color': 'rgb(0, 0, 0)',
             'color': 'rgb(116, 9, 9)',
             'animation': 'reverse'
         });
-         console.log("g")
+        console.log("g")
     },
-    onBlurred :function(event){
+    onBlurred: function (event) {
         $(event.currentTarget).find('span').removeAttr("style")
     },
     onSelected: function (event, originalEvent, selected) {
@@ -218,16 +227,16 @@ $('#btn-g').caphButton({
 
 
 $('#btn-h').caphButton({
-    onFocused :function(event){
+    onFocused: function (event) {
         $(event.currentTarget).find('span').css({
-		    'transform' : 'scale(1.7)',
-            'background-color' : 'rgb(0, 0, 0)',
+            'transform': 'scale(1.7)',
+            'background-color': 'rgb(0, 0, 0)',
             'color': 'rgb(116, 9, 9)',
             'animation': 'reverse'
         });
-         console.log("h")
+        console.log("h")
     },
-    onBlurred :function(event){
+    onBlurred: function (event) {
         $(event.currentTarget).find('span').removeAttr("style")
     },
     onSelected: function (event, originalEvent, selected) {
@@ -239,16 +248,16 @@ $('#btn-h').caphButton({
 });
 
 $('#btn-i').caphButton({
-    onFocused :function(event){
+    onFocused: function (event) {
         $(event.currentTarget).find('span').css({
-		    'transform' : 'scale(1.7)',
-            'background-color' : 'rgb(0, 0, 0)',
+            'transform': 'scale(1.7)',
+            'background-color': 'rgb(0, 0, 0)',
             'color': 'rgb(116, 9, 9)',
             'animation': 'reverse'
         });
-         console.log("i")
+        console.log("i")
     },
-    onBlurred :function(event){
+    onBlurred: function (event) {
         $(event.currentTarget).find('span').removeAttr("style")
     },
     onSelected: function (event, originalEvent, selected) {
@@ -260,16 +269,16 @@ $('#btn-i').caphButton({
 });
 
 $('#btn-j').caphButton({
-    onFocused :function(event){
+    onFocused: function (event) {
         $(event.currentTarget).find('span').css({
-		    'transform' : 'scale(1.7)',
-            'background-color' : 'rgb(0, 0, 0)',
+            'transform': 'scale(1.7)',
+            'background-color': 'rgb(0, 0, 0)',
             'color': 'rgb(116, 9, 9)',
             'animation': 'reverse'
         });
-         console.log("j")
+        console.log("j")
     },
-    onBlurred :function(event){
+    onBlurred: function (event) {
         $(event.currentTarget).find('span').removeAttr("style")
     },
     onSelected: function (event, originalEvent, selected) {
@@ -281,16 +290,16 @@ $('#btn-j').caphButton({
 });
 
 $('#btn-k').caphButton({
-    onFocused :function(event){
+    onFocused: function (event) {
         $(event.currentTarget).find('span').css({
-		    'transform' : 'scale(1.7)',
-            'background-color' : 'rgb(0, 0, 0)',
+            'transform': 'scale(1.7)',
+            'background-color': 'rgb(0, 0, 0)',
             'color': 'rgb(116, 9, 9)',
             'animation': 'reverse'
         });
-         console.log("k")
+        console.log("k")
     },
-    onBlurred :function(event){
+    onBlurred: function (event) {
         $(event.currentTarget).find('span').removeAttr("style")
     },
     onSelected: function (event, originalEvent, selected) {
@@ -302,16 +311,16 @@ $('#btn-k').caphButton({
 });
 
 $('#btn-l').caphButton({
-    onFocused :function(event){
+    onFocused: function (event) {
         $(event.currentTarget).find('span').css({
-		    'transform' : 'scale(1.7)',
-            'background-color' : 'rgb(0, 0, 0)',
+            'transform': 'scale(1.7)',
+            'background-color': 'rgb(0, 0, 0)',
             'color': 'rgb(116, 9, 9)',
             'animation': 'reverse'
         });
-         console.log("l")
+        console.log("l")
     },
-    onBlurred :function(event){
+    onBlurred: function (event) {
         $(event.currentTarget).find('span').removeAttr("style")
     },
     onSelected: function (event, originalEvent, selected) {
@@ -323,16 +332,16 @@ $('#btn-l').caphButton({
 });
 
 $('#btn-m').caphButton({
-    onFocused :function(event){
+    onFocused: function (event) {
         $(event.currentTarget).find('span').css({
-		    'transform' : 'scale(1.7)',
-            'background-color' : 'rgb(0, 0, 0)',
+            'transform': 'scale(1.7)',
+            'background-color': 'rgb(0, 0, 0)',
             'color': 'rgb(116, 9, 9)',
             'animation': 'reverse'
         });
-         console.log("m")
+        console.log("m")
     },
-    onBlurred :function(event){
+    onBlurred: function (event) {
         $(event.currentTarget).find('span').removeAttr("style")
     },
     onSelected: function (event, originalEvent, selected) {
@@ -344,16 +353,16 @@ $('#btn-m').caphButton({
 });
 
 $('#btn-n').caphButton({
-    onFocused :function(event){
+    onFocused: function (event) {
         $(event.currentTarget).find('span').css({
-		    'transform' : 'scale(1.7)',
-            'background-color' : 'rgb(0, 0, 0)',
+            'transform': 'scale(1.7)',
+            'background-color': 'rgb(0, 0, 0)',
             'color': 'rgb(116, 9, 9)',
             'animation': 'reverse'
         });
-         console.log("n")
+        console.log("n")
     },
-    onBlurred :function(event){
+    onBlurred: function (event) {
         $(event.currentTarget).find('span').removeAttr("style")
     },
     onSelected: function (event, originalEvent, selected) {
@@ -365,16 +374,16 @@ $('#btn-n').caphButton({
 });
 
 $('#btn-o').caphButton({
-    onFocused :function(event){
+    onFocused: function (event) {
         $(event.currentTarget).find('span').css({
-		    'transform' : 'scale(1.7)',
-            'background-color' : 'rgb(0, 0, 0)',
+            'transform': 'scale(1.7)',
+            'background-color': 'rgb(0, 0, 0)',
             'color': 'rgb(116, 9, 9)',
             'animation': 'reverse'
         });
-         console.log("o")
+        console.log("o")
     },
-    onBlurred :function(event){
+    onBlurred: function (event) {
         $(event.currentTarget).find('span').removeAttr("style")
     },
     onSelected: function (event, originalEvent, selected) {
@@ -386,16 +395,16 @@ $('#btn-o').caphButton({
 });
 
 $('#btn-p').caphButton({
-    onFocused :function(event){
+    onFocused: function (event) {
         $(event.currentTarget).find('span').css({
-		    'transform' : 'scale(1.7)',
-            'background-color' : 'rgb(0, 0, 0)',
+            'transform': 'scale(1.7)',
+            'background-color': 'rgb(0, 0, 0)',
             'color': 'rgb(116, 9, 9)',
             'animation': 'reverse'
         });
-         console.log("p")
+        console.log("p")
     },
-    onBlurred :function(event){
+    onBlurred: function (event) {
         $(event.currentTarget).find('span').removeAttr("style")
     },
     onSelected: function (event, originalEvent, selected) {
@@ -407,16 +416,16 @@ $('#btn-p').caphButton({
 });
 
 $('#btn-q').caphButton({
-    onFocused :function(event){
+    onFocused: function (event) {
         $(event.currentTarget).find('span').css({
-		    'transform' : 'scale(1.7)',
-            'background-color' : 'rgb(0, 0, 0)',
+            'transform': 'scale(1.7)',
+            'background-color': 'rgb(0, 0, 0)',
             'color': 'rgb(116, 9, 9)',
             'animation': 'reverse'
         });
-         console.log("q")
+        console.log("q")
     },
-    onBlurred :function(event){
+    onBlurred: function (event) {
         $(event.currentTarget).find('span').removeAttr("style")
     },
     onSelected: function (event, originalEvent, selected) {
@@ -428,16 +437,16 @@ $('#btn-q').caphButton({
 });
 
 $('#btn-r').caphButton({
-    onFocused :function(event){
+    onFocused: function (event) {
         $(event.currentTarget).find('span').css({
-		    'transform' : 'scale(1.7)',
-            'background-color' : 'rgb(0, 0, 0)',
+            'transform': 'scale(1.7)',
+            'background-color': 'rgb(0, 0, 0)',
             'color': 'rgb(116, 9, 9)',
             'animation': 'reverse'
         });
-         console.log("r")
+        console.log("r")
     },
-    onBlurred :function(event){
+    onBlurred: function (event) {
         $(event.currentTarget).find('span').removeAttr("style")
     },
     onSelected: function (event, originalEvent, selected) {
@@ -449,16 +458,16 @@ $('#btn-r').caphButton({
 });
 
 $('#btn-s').caphButton({
-    onFocused :function(event){
+    onFocused: function (event) {
         $(event.currentTarget).find('span').css({
-		    'transform' : 'scale(1.7)',
-            'background-color' : 'rgb(0, 0, 0)',
+            'transform': 'scale(1.7)',
+            'background-color': 'rgb(0, 0, 0)',
             'color': 'rgb(116, 9, 9)',
             'animation': 'reverse'
         });
-         console.log("s")
+        console.log("s")
     },
-    onBlurred :function(event){
+    onBlurred: function (event) {
         $(event.currentTarget).find('span').removeAttr("style")
     },
     onSelected: function (event, originalEvent, selected) {
@@ -470,16 +479,16 @@ $('#btn-s').caphButton({
 });
 
 $('#btn-t').caphButton({
-    onFocused :function(event){
+    onFocused: function (event) {
         $(event.currentTarget).find('span').css({
-		    'transform' : 'scale(1.7)',
-            'background-color' : 'rgb(0, 0, 0)',
+            'transform': 'scale(1.7)',
+            'background-color': 'rgb(0, 0, 0)',
             'color': 'rgb(116, 9, 9)',
             'animation': 'reverse'
         });
-         console.log("t")
+        console.log("t")
     },
-    onBlurred :function(event){
+    onBlurred: function (event) {
         $(event.currentTarget).find('span').removeAttr("style")
     },
     onSelected: function (event, originalEvent, selected) {
@@ -492,16 +501,16 @@ $('#btn-t').caphButton({
 
 
 $('#btn-u').caphButton({
-    onFocused :function(event){
+    onFocused: function (event) {
         $(event.currentTarget).find('span').css({
-		    'transform' : 'scale(1.7)',
-            'background-color' : 'rgb(0, 0, 0)',
+            'transform': 'scale(1.7)',
+            'background-color': 'rgb(0, 0, 0)',
             'color': 'rgb(116, 9, 9)',
             'animation': 'reverse'
         });
-         console.log("u")
+        console.log("u")
     },
-    onBlurred :function(event){
+    onBlurred: function (event) {
         $(event.currentTarget).find('span').removeAttr("style")
     },
     onSelected: function (event, originalEvent, selected) {
@@ -514,16 +523,16 @@ $('#btn-u').caphButton({
 
 
 $('#btn-v').caphButton({
-    onFocused :function(event){
+    onFocused: function (event) {
         $(event.currentTarget).find('span').css({
-		    'transform' : 'scale(1.7)',
-            'background-color' : 'rgb(0, 0, 0)',
+            'transform': 'scale(1.7)',
+            'background-color': 'rgb(0, 0, 0)',
             'color': 'rgb(116, 9, 9)',
             'animation': 'reverse'
         });
-         console.log("v")
+        console.log("v")
     },
-    onBlurred :function(event){
+    onBlurred: function (event) {
         $(event.currentTarget).find('span').removeAttr("style")
     },
     onSelected: function (event, originalEvent, selected) {
@@ -535,16 +544,16 @@ $('#btn-v').caphButton({
 });
 
 $('#btn-w').caphButton({
-    onFocused :function(event){
+    onFocused: function (event) {
         $(event.currentTarget).find('span').css({
-		    'transform' : 'scale(1.7)',
-            'background-color' : 'rgb(0, 0, 0)',
+            'transform': 'scale(1.7)',
+            'background-color': 'rgb(0, 0, 0)',
             'color': 'rgb(116, 9, 9)',
             'animation': 'reverse'
         });
-         console.log("w")
+        console.log("w")
     },
-    onBlurred :function(event){
+    onBlurred: function (event) {
         $(event.currentTarget).find('span').removeAttr("style")
     },
     onSelected: function (event, originalEvent, selected) {
@@ -556,16 +565,16 @@ $('#btn-w').caphButton({
 });
 
 $('#btn-x').caphButton({
-    onFocused :function(event){
+    onFocused: function (event) {
         $(event.currentTarget).find('span').css({
-		    'transform' : 'scale(1.7)',
-            'background-color' : 'rgb(0, 0, 0)',
+            'transform': 'scale(1.7)',
+            'background-color': 'rgb(0, 0, 0)',
             'color': 'rgb(116, 9, 9)',
             'animation': 'reverse'
         });
-         console.log("x")
+        console.log("x")
     },
-    onBlurred :function(event){
+    onBlurred: function (event) {
         $(event.currentTarget).find('span').removeAttr("style")
     },
     onSelected: function (event, originalEvent, selected) {
@@ -577,16 +586,16 @@ $('#btn-x').caphButton({
 });
 
 $('#btn-y').caphButton({
-    onFocused :function(event){
+    onFocused: function (event) {
         $(event.currentTarget).find('span').css({
-		    'transform' : 'scale(1.7)',
-            'background-color' : 'rgb(0, 0, 0)',
+            'transform': 'scale(1.7)',
+            'background-color': 'rgb(0, 0, 0)',
             'color': 'rgb(116, 9, 9)',
             'animation': 'reverse'
         });
-         console.log("y")
+        console.log("y")
     },
-    onBlurred :function(event){
+    onBlurred: function (event) {
         $(event.currentTarget).find('span').removeAttr("style")
     },
     onSelected: function (event, originalEvent, selected) {
@@ -598,16 +607,16 @@ $('#btn-y').caphButton({
 });
 
 $('#btn-z').caphButton({
-    onFocused :function(event){
+    onFocused: function (event) {
         $(event.currentTarget).find('span').css({
-		    'transform' : 'scale(1.7)',
-            'background-color' : 'rgb(0, 0, 0)',
+            'transform': 'scale(1.7)',
+            'background-color': 'rgb(0, 0, 0)',
             'color': 'rgb(116, 9, 9)',
             'animation': 'reverse'
         });
-         console.log("z")
+        console.log("z")
     },
-    onBlurred :function(event){
+    onBlurred: function (event) {
         $(event.currentTarget).find('span').removeAttr("style")
     },
     onSelected: function (event, originalEvent, selected) {
@@ -619,16 +628,16 @@ $('#btn-z').caphButton({
 });
 
 $('#btn-0').caphButton({
-    onFocused :function(event){
+    onFocused: function (event) {
         $(event.currentTarget).find('span').css({
-		    'transform' : 'scale(1.7)',
-            'background-color' : 'rgb(0, 0, 0)',
+            'transform': 'scale(1.7)',
+            'background-color': 'rgb(0, 0, 0)',
             'color': 'rgb(116, 9, 9)',
             'animation': 'reverse'
         });
-         console.log("0")
+        console.log("0")
     },
-    onBlurred :function(event){
+    onBlurred: function (event) {
         $(event.currentTarget).find('span').removeAttr("style")
     },
     onSelected: function (event, originalEvent, selected) {
@@ -640,16 +649,16 @@ $('#btn-0').caphButton({
 });
 
 $('#btn-1').caphButton({
-    onFocused :function(event){
+    onFocused: function (event) {
         $(event.currentTarget).find('span').css({
-		    'transform' : 'scale(1.7)',
-            'background-color' : 'rgb(0, 0, 0)',
+            'transform': 'scale(1.7)',
+            'background-color': 'rgb(0, 0, 0)',
             'color': 'rgb(116, 9, 9)',
             'animation': 'reverse'
         });
-         console.log("1")
+        console.log("1")
     },
-    onBlurred :function(event){
+    onBlurred: function (event) {
         $(event.currentTarget).find('span').removeAttr("style")
     },
     onSelected: function (event, originalEvent, selected) {
@@ -661,16 +670,16 @@ $('#btn-1').caphButton({
 });
 
 $('#btn-2').caphButton({
-    onFocused :function(event){
+    onFocused: function (event) {
         $(event.currentTarget).find('span').css({
-		    'transform' : 'scale(1.7)',
-            'background-color' : 'rgb(0, 0, 0)',
+            'transform': 'scale(1.7)',
+            'background-color': 'rgb(0, 0, 0)',
             'color': 'rgb(116, 9, 9)',
             'animation': 'reverse'
         });
-         console.log("2")
+        console.log("2")
     },
-    onBlurred :function(event){
+    onBlurred: function (event) {
         $(event.currentTarget).find('span').removeAttr("style")
     },
     onSelected: function (event, originalEvent, selected) {
@@ -682,16 +691,16 @@ $('#btn-2').caphButton({
 });
 
 $('#btn-3').caphButton({
-    onFocused :function(event){
+    onFocused: function (event) {
         $(event.currentTarget).find('span').css({
-		    'transform' : 'scale(1.7)',
-            'background-color' : 'rgb(0, 0, 0)',
+            'transform': 'scale(1.7)',
+            'background-color': 'rgb(0, 0, 0)',
             'color': 'rgb(116, 9, 9)',
             'animation': 'reverse'
         });
-         console.log("3")
+        console.log("3")
     },
-    onBlurred :function(event){
+    onBlurred: function (event) {
         $(event.currentTarget).find('span').removeAttr("style")
     },
     onSelected: function (event, originalEvent, selected) {
@@ -703,16 +712,16 @@ $('#btn-3').caphButton({
 });
 
 $('#btn-4').caphButton({
-    onFocused :function(event){
+    onFocused: function (event) {
         $(event.currentTarget).find('span').css({
-		    'transform' : 'scale(1.7)',
-            'background-color' : 'rgb(0, 0, 0)',
+            'transform': 'scale(1.7)',
+            'background-color': 'rgb(0, 0, 0)',
             'color': 'rgb(116, 9, 9)',
             'animation': 'reverse'
         });
-         console.log("4")
+        console.log("4")
     },
-    onBlurred :function(event){
+    onBlurred: function (event) {
         $(event.currentTarget).find('span').removeAttr("style")
     },
     onSelected: function (event, originalEvent, selected) {
@@ -724,16 +733,16 @@ $('#btn-4').caphButton({
 });
 
 $('#btn-5').caphButton({
-    onFocused :function(event){
+    onFocused: function (event) {
         $(event.currentTarget).find('span').css({
-		    'transform' : 'scale(1.7)',
-            'background-color' : 'rgb(0, 0, 0)',
+            'transform': 'scale(1.7)',
+            'background-color': 'rgb(0, 0, 0)',
             'color': 'rgb(116, 9, 9)',
             'animation': 'reverse'
         });
-         console.log("5")
+        console.log("5")
     },
-    onBlurred :function(event){
+    onBlurred: function (event) {
         $(event.currentTarget).find('span').removeAttr("style")
     },
     onSelected: function (event, originalEvent, selected) {
@@ -745,16 +754,16 @@ $('#btn-5').caphButton({
 });
 
 $('#btn-6').caphButton({
-    onFocused :function(event){
+    onFocused: function (event) {
         $(event.currentTarget).find('span').css({
-		    'transform' : 'scale(1.7)',
-            'background-color' : 'rgb(0, 0, 0)',
+            'transform': 'scale(1.7)',
+            'background-color': 'rgb(0, 0, 0)',
             'color': 'rgb(116, 9, 9)',
             'animation': 'reverse'
         });
-         console.log("6")
+        console.log("6")
     },
-    onBlurred :function(event){
+    onBlurred: function (event) {
         $(event.currentTarget).find('span').removeAttr("style")
     },
     onSelected: function (event, originalEvent, selected) {
@@ -766,16 +775,16 @@ $('#btn-6').caphButton({
 });
 
 $('#btn-7').caphButton({
-    onFocused :function(event){
+    onFocused: function (event) {
         $(event.currentTarget).find('span').css({
-		    'transform' : 'scale(1.7)',
-            'background-color' : 'rgb(0, 0, 0)',
+            'transform': 'scale(1.7)',
+            'background-color': 'rgb(0, 0, 0)',
             'color': 'rgb(116, 9, 9)',
             'animation': 'reverse'
         });
-         console.log("7")
+        console.log("7")
     },
-    onBlurred :function(event){
+    onBlurred: function (event) {
         $(event.currentTarget).find('span').removeAttr("style")
     },
     onSelected: function (event, originalEvent, selected) {
@@ -787,16 +796,16 @@ $('#btn-7').caphButton({
 });
 
 $('#btn-8').caphButton({
-    onFocused :function(event){
+    onFocused: function (event) {
         $(event.currentTarget).find('span').css({
-		    'transform' : 'scale(1.7)',
-            'background-color' : 'rgb(0, 0, 0)',
+            'transform': 'scale(1.7)',
+            'background-color': 'rgb(0, 0, 0)',
             'color': 'rgb(116, 9, 9)',
             'animation': 'reverse'
         });
-         console.log("8")
+        console.log("8")
     },
-    onBlurred :function(event){
+    onBlurred: function (event) {
         $(event.currentTarget).find('span').removeAttr("style")
     },
     onSelected: function (event, originalEvent, selected) {
@@ -808,16 +817,16 @@ $('#btn-8').caphButton({
 });
 
 $('#btn-9').caphButton({
-    onFocused :function(event){
+    onFocused: function (event) {
         $(event.currentTarget).find('span').css({
-		    'transform' : 'scale(1.7)',
-            'background-color' : 'rgb(0, 0, 0)',
+            'transform': 'scale(1.7)',
+            'background-color': 'rgb(0, 0, 0)',
             'color': 'rgb(116, 9, 9)',
             'animation': 'reverse'
         });
-         console.log("9")
+        console.log("9")
     },
-    onBlurred :function(event){
+    onBlurred: function (event) {
         $(event.currentTarget).find('span').removeAttr("style")
     },
     onSelected: function (event, originalEvent, selected) {
@@ -831,8 +840,8 @@ $('#btn-9').caphButton({
 $('#btn-space').caphButton({
     onFocused: function (event) {
         $(event.currentTarget).css({
-		    'transform' : 'scale(1.7)',
-            'background-color' : 'rgb(0, 0, 0)',
+            'transform': 'scale(1.7)',
+            'background-color': 'rgb(0, 0, 0)',
             'color': 'rgb(116, 9, 9)',
             'animation': 'reverse'
         });
@@ -852,8 +861,8 @@ $('#btn-space').caphButton({
 $('#btn-backspace').caphButton({
     onFocused: function (event) {
         $(event.currentTarget).css({
-		    'transform' : 'scale(1.7)',
-            'background-color' : 'rgb(0, 0, 0)',
+            'transform': 'scale(1.7)',
+            'background-color': 'rgb(0, 0, 0)',
             'color': 'rgb(116, 9, 9)',
             'animation': 'reverse'
         });
